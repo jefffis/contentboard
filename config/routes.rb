@@ -1,4 +1,8 @@
 Contentboardd::Application.routes.draw do
+  resources :contents
+
+  root :to => "contents#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

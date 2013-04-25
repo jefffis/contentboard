@@ -1,0 +1,139 @@
+// Place all the styles related to the Contents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: 320px) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: 321px) and (max-width: 1024px) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: 1024px) { @content; }
+  }
+}
+
+// variables
+$main-background: #9ce8e3;
+$main-link: #fe8787;
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+
+	font:normal 100%/1.5 'Helvetica Neue', Arial, sans-serif;
+	height:auto;
+	min-height:100%;
+	width:100%;
+	background: $main-background;
+
+	body {
+
+		height:auto;
+		min-height:100%;
+		width:100%;
+		padding:2em;
+
+		@include respond-to(mobile) { width: 100% ; }
+		@include respond-to(tablet) { width: 100% ; }
+		@include respond-to(desktop) {
+			width: 1000px;
+			margin:0 auto;
+			padding:2em 0;
+		}
+
+		h1, h2, h3, h4, li, p {
+			margin-bottom: 1em;
+		}
+
+		// button links
+		.btn:link, .btn:visited {
+			background: $main-link;
+			color: white;
+			text-decoration: none;
+			display: block;
+			padding: 1em;
+		}
+
+		// form
+		form {
+
+			fieldset {
+				border: 0;
+				padding: 0;
+				margin: 0;
+			
+				label {
+					display:block;
+					margin: 0 0 .5em;
+				}
+
+				input, textarea {
+					display: block;
+					width: 100%;
+					padding: 1em;
+					margin: 0 0 1em;
+					outline: 3px solid rgba(0,0,0,0.1);
+					border: 0;
+
+					&:focus {
+						outline: 3px solid rgba(0,0,0,0.2);
+						box-shadow: 0 0 3px rgba(0,0,0,0.15), 0 0 6px rgba(0,0,0,0.075), 0 0 20px rgba(0,0,0,0.075);
+					}
+
+				}
+
+				[type=submit] {
+					background: $main-link;
+					color: white;
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+
+			}
+
+		}
+
+	}
+}
+
+/**********
+scaffolds css
+**********/
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
