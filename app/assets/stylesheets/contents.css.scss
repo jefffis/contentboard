@@ -17,6 +17,8 @@
 // variables
 $main-background: #9ce8e3;
 $main-link: #fe8787;
+$custom-font: 'Sintony', 'Helvetica Neue', Arial, sans-serif;
+$sans: 'Helvetica Neue', Arial, sans-serif;
 
 * {
 	-webkit-box-sizing: border-box;
@@ -26,38 +28,60 @@ $main-link: #fe8787;
 
 html {
 
-	font:normal 100%/1.5 'Helvetica Neue', Arial, sans-serif;
+	font:normal 100%/1.5 $custom-font;
 	height:auto;
 	min-height:100%;
 	width:100%;
-	background: $main-background;
+	//background: $main-background;
+	border-top:10px solid lighten($main-link, 15%);
+	color: rgba(0,0,0,0.5);
 
 	body {
 
 		height:auto;
 		min-height:100%;
 		width:100%;
-		padding:2em;
+		padding:1em 2em;
 
 		@include respond-to(mobile) { width: 100% ; }
 		@include respond-to(tablet) { width: 100% ; }
 		@include respond-to(desktop) {
 			width: 1000px;
 			margin:0 auto;
-			padding:2em 0;
+			padding:1em 0;
 		}
 
 		h1, h2, h3, h4, li, p {
 			margin-bottom: 1em;
+			letter-spacing: -1px;
 		}
 
 		// button links
-		.btn:link, .btn:visited {
+		.btn {
 			background: $main-link;
 			color: white;
 			text-decoration: none;
 			display: block;
 			padding: 1em;
+
+			&:hover {
+				background: darken($main-link, 15%);
+			}
+
+		}
+
+		header {
+			h2 {
+				text-align: center;
+				text-transform: uppercase;
+				font-size: 2em;
+
+				a {
+					text-decoration: none;
+					color: rgba(0,0,0,0.5);
+				}
+
+			}
 		}
 
 		// form
@@ -66,11 +90,25 @@ html {
 			fieldset {
 				border: 0;
 				padding: 0;
-				margin: 0;
-			
+				margin: 0 0 2em;
+
+				&.m {
+					margin-bottom: 1em;
+				}
+
 				label {
+					cursor: pointer;
+
+					&:active {
+						opacity: .75;
+					}
+
+				}
+			
+				label, h2, h3, h4, p {
 					display:block;
 					margin: 0 0 .5em;
+					font: bold 120%/1 $custom-font;
 				}
 
 				input, textarea {
@@ -88,11 +126,94 @@ html {
 
 				}
 
+				[type=radio] {
+					display: inline-block;
+					outline: none;
+					width: auto;
+				}
+
 				[type=submit] {
 					background: $main-link;
 					color: white;
 					text-transform: uppercase;
 					font-weight: bold;
+					margin-top: 2em;
+
+					&:hover {
+						background: darken($main-link, 7%);
+					}
+
+					&:active {
+						opacity: .75;
+						padding: 1.05em 1em .95em;
+					}
+
+				}
+
+				// for radio or checkboxes
+				.i {
+					display: inline-block;
+					//margin-right: .5em;
+					font-weight: normal;
+					font-size: 100%;
+					width:48%;
+					float: left;
+					margin-top: .3em;
+					padding: 1em;
+					min-height: 30em;
+					//text-align: center;
+					//background: rgba(0,0,0,0.1);
+					cursor: pointer;
+					position: relative;
+
+					&:hover {
+						opacity: .75;
+					}
+
+					&:active {
+						opacity: .5;
+					}
+
+					&:before {
+						content: "";
+						display: block;
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						background: rgba(0,0,0,0.1);
+						outline: 3px solid rgba(0,0,0,0.2);
+					}
+
+					+ .i {
+						float: right;
+					
+						&:before {
+							width: 47%;
+						}
+
+						&:after {
+							content: "";
+							display: block;
+							position: absolute;
+							right: 0;
+							top: 0;
+							width: 47%;
+							height: 100%;
+							background: rgba(0,0,0,0.1);
+							outline: 3px solid rgba(0,0,0,0.2);
+						}
+
+					}
+
+					input {
+						visibility: hidden;
+						height: 0;
+						width: 0;
+						display: none;
+					}
+				
 				}
 
 			}

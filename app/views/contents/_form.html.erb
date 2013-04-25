@@ -11,16 +11,26 @@
   <% end %>
 
   <fieldset>
-    <%= f.label :name %>
+    <%= f.label :name, 'Add your site header' %>
     <%= f.text_field :name %>
   </fieldset>
-  <fieldset>
+  <!--<fieldset>
     <%= f.label :title %>
     <%= f.text_field :title %>
-  </fieldset>
+  </fieldset>-->
   <fieldset>
-    <%= f.label :content %>
+    <%= f.label :content, 'Add in your page content here' %>
     <%= f.text_area :content %>
+  </fieldset>
+  <fieldset class="m">
+    <%#= f.label :layout %>
+    <h2>Choose your layout:</h2>
+    <% [ 'Single Column', 'Two Column' ].each do |theme| %>
+      <label class="i" for="<%= theme.parameterize %>">
+        <%= radio_button_tag 'theme', theme, @theme == theme, :id => theme.parameterize %>
+        <%= theme.humanize %>
+      </label>
+    <% end %>
   </fieldset>
   <fieldset>
     <%= f.submit %>
