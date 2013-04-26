@@ -12,14 +12,17 @@
 	<%#= include_tiny_mce_if_needed %>
 </head>
 <body>
-	<header role="banner">
-	  <h2>
-	  	<a href="">Contentboard
-			<span class="icon-pencil"></span>
-	  	</a>
-	  </h2>
-	</header>
-	<%= yield %>
-	
+	<div class="table-cell">
+		<div class="wrapper">
+			<header role="banner">
+			  <h2>
+			  	<a href="">Contentboard
+					<span class="icon-pencil"></span>
+			  	</a>
+			  </h2>
+			</header>
+			<%= yield %>
+		</div>
+	</div>	
 </body>
 </html>
