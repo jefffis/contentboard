@@ -5,15 +5,21 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Contentboard</title>
-	<link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Vidaloka:400' rel='stylesheet' type='text/css' />
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= csrf_meta_tags %>
+	<%= javascript_include_tag "application" %>
+	<%#= include_tiny_mce_if_needed %>
 </head>
 <body>
 	<header role="banner">
-	  <h2><a href="">Contentboard</a></h2>
+	  <h2>
+	  	<a href="">Contentboard
+			<span class="icon-pencil"></span>
+	  	</a>
+	  </h2>
 	</header>
 	<%= yield %>
-	<%= javascript_include_tag "application" %>
+	
 </body>
 </html>

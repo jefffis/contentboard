@@ -28,7 +28,8 @@
     <% [ 'Single Column', 'Two Column' ].each do |theme| %>
       <label class="i" for="<%= theme.parameterize %>">
         <%= radio_button_tag 'theme', theme, @theme == theme, :id => theme.parameterize %>
-        <%= theme.humanize %>
+        <img src="/assets/<%= theme.parameterize %>.svg" /> 
+        <span><%= theme.humanize %></span>
       </label>
     <% end %>
   </fieldset>

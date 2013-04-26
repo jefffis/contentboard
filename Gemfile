@@ -7,6 +7,10 @@ gem 'rails', '3.2.10'
 
 gem 'mysql2'
 
+gem 'tiny_mce'
+
+gem 'therubyracer'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,4 +1,10 @@
 class ContentsController < ApplicationController
+
+  #uses_tiny_mce :options => { :plugins => ['spellchecker'] },
+   #             :raw_options => '',
+   #             :only => ['new', 'edit']
+  #include TinyMCEActions
+
   # GET /contents
   # GET /contents.json
   def index
@@ -24,6 +30,7 @@ class ContentsController < ApplicationController
   # GET /contents/new
   # GET /contents/new.json
   def new
+
     @content = Content.new
 
     respond_to do |format|
