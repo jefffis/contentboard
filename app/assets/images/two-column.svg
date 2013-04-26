@@ -3,36 +3,35 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="480px" height="640px" viewBox="0 0 480 640" enable-background="new 0 0 480 640" xml:space="preserve">
-<rect opacity="0.5" fill="#040407" width="480" height="640"/>
-<rect x="23" y="20" opacity="0.5" fill="#040407" width="434" height="95"/>
+<rect x="23" y="20" opacity="0.5" fill="#040407" enable-background="new    " width="434" height="95"/>
 <g>
-	<rect x="23" y="144" opacity="0.5" fill="#040407" width="202" height="25"/>
-	<rect x="23" y="180" opacity="0.5" fill="#040407" width="202" height="25"/>
-	<rect x="23" y="216" opacity="0.5" fill="#040407" width="158" height="25"/>
+	<rect x="23" y="144" opacity="0.5" fill="#040407" enable-background="new    " width="202" height="25"/>
+	<rect x="23" y="180" opacity="0.5" fill="#040407" enable-background="new    " width="202" height="25"/>
+	<rect x="23" y="216" opacity="0.5" fill="#040407" enable-background="new    " width="158" height="25"/>
 </g>
 <g>
-	<rect x="23" y="268" opacity="0.5" fill="#040407" width="202" height="25"/>
-	<rect x="23" y="304" opacity="0.5" fill="#040407" width="202" height="25"/>
-	<rect x="23" y="340" opacity="0.5" fill="#040407" width="158" height="25"/>
+	<rect x="23" y="268" opacity="0.5" fill="#040407" enable-background="new    " width="202" height="25"/>
+	<rect x="23" y="304" opacity="0.5" fill="#040407" enable-background="new    " width="202" height="25"/>
+	<rect x="23" y="340" opacity="0.5" fill="#040407" enable-background="new    " width="158" height="25"/>
 </g>
 <g>
-	<rect x="23" y="393" opacity="0.5" fill="#040407" width="202" height="25"/>
-	<rect x="23" y="429" opacity="0.5" fill="#040407" width="202" height="25"/>
-	<rect x="23" y="465" opacity="0.5" fill="#040407" width="158" height="25"/>
+	<rect x="23" y="393" opacity="0.5" fill="#040407" enable-background="new    " width="202" height="25"/>
+	<rect x="23" y="429" opacity="0.5" fill="#040407" enable-background="new    " width="202" height="25"/>
+	<rect x="23" y="465" opacity="0.5" fill="#040407" enable-background="new    " width="158" height="25"/>
 </g>
 <g>
-	<rect x="23" y="517" opacity="0.5" fill="#040407" width="202" height="25"/>
-	<rect x="23" y="553" opacity="0.5" fill="#040407" width="202" height="25"/>
-	<rect x="23" y="589" opacity="0.5" fill="#040407" width="158" height="25"/>
+	<rect x="23" y="517" opacity="0.5" fill="#040407" enable-background="new    " width="202" height="25"/>
+	<rect x="23" y="553" opacity="0.5" fill="#040407" enable-background="new    " width="202" height="25"/>
+	<rect x="23" y="589" opacity="0.5" fill="#040407" enable-background="new    " width="158" height="25"/>
 </g>
 <g>
-	<rect x="250" y="144" opacity="0.5" fill="#040407" width="207" height="25"/>
-	<rect x="250" y="180" opacity="0.5" fill="#040407" width="207" height="25"/>
-	<rect x="250" y="216" opacity="0.5" fill="#040407" width="162" height="25"/>
+	<rect x="250" y="144" opacity="0.5" fill="#040407" enable-background="new    " width="207" height="25"/>
+	<rect x="250" y="180" opacity="0.5" fill="#040407" enable-background="new    " width="207" height="25"/>
+	<rect x="250" y="216" opacity="0.5" fill="#040407" enable-background="new    " width="162" height="25"/>
 </g>
 <g>
-	<rect x="250" y="268" opacity="0.5" fill="#040407" width="207" height="25"/>
-	<rect x="250" y="304" opacity="0.5" fill="#040407" width="207" height="25"/>
-	<rect x="250" y="340" opacity="0.5" fill="#040407" width="162" height="25"/>
+	<rect x="250" y="268" opacity="0.5" fill="#040407" enable-background="new    " width="207" height="25"/>
+	<rect x="250" y="304" opacity="0.5" fill="#040407" enable-background="new    " width="207" height="25"/>
+	<rect x="250" y="340" opacity="0.5" fill="#040407" enable-background="new    " width="162" height="25"/>
 </g>
 </svg>
