@@ -1,4 +1,5 @@
 <%= form_for(@content) do |f| %>
+
   <% if @content.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@content.errors.count, "error") %> prohibited this content from being saved:</h2>
@@ -25,13 +26,18 @@
   <fieldset class="m">
     <%#= f.label :layout %>
     <h2>Choose your layout:</h2>
-    <% [ 'Single Column', 'Two Column' ].each do |theme| %>
+    <%
+    i = 0
+    [ 'Single Column', 'Two Column' ].each_with_index do |theme,i| %>
       <label class="i" for="<%= theme.parameterize %>">
-        <%= radio_button_tag 'theme', theme, @theme == theme, :id => theme.parameterize %>
+        <input id="<%= theme.parameterize %>" name="theme" type="radio" value="<%= i %>" />
         <img src="/assets/<%= theme.parameterize %>.svg" /> 
         <span><%= theme.humanize %></span>
       </label>
-    <% end %>
+    <%
+    i+=1
+    end %>
+    <%= f.text_field :layout_type, :class => 'hide' %>
   </fieldset>
   <fieldset>
     <%= f.submit %>

@@ -1,20 +1,72 @@
-<p id="notice"><%= notice %></p>
+<div class="layout single">
 
-<p>
-  <b>Name:</b>
-  <%= @content.name %>
-</p>
+	<small>
+		<span class="icon-pencil edit" data-part="global"></span>
+		<a href="/contents/new"><span class="icon-plus edit"></span></a>
+	</small>
+	
+	<header>
+		<p id="notice"><%= notice %></p>
+		<h2><%= @content.name %></h2>
+		<!--<span class="icon-pencil edit" data-part="header"></span>-->
+	</header>
 
-<p>
-  <b>Title:</b>
-  <%= @content.title %>
-</p>
+	<div class="main" id="main">
+		<%= @content.content.html_safe %>
+		<!--<span class="icon-pencil edit" data-part="main"></span>-->
+	</div>
 
-<p>
-  <b>Content:</b>
-  <%= @content.content %>
-</p>
+	<%= link_to 'Edit the Content', edit_content_path(@content), :class => 'btn' %><%#= link_to 'Back', contents_path %>
+</div>
 
-
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', contents_path %>
+<div class="table inner nope" id="modal">
+	<div class="table-cell">
+		<div class="options global">
+			<h2>Edit Global Options:</h2>
+			<form method="">
+				<fieldset>
+					<label for="background">
+						<span>Background Color:</span>
+						<input id="background" type="color" />
+					</label>
+				</fieldset>
+				<fieldset>
+					<label for="header">
+						<span>Header Background Color:</span>
+						<input id="header" type="color" />
+					</label>
+				</fieldset>
+				<fieldset>
+					<label for="main">
+						<span>Main Content Background Color:</span>
+						<input id="main-col" type="color" />
+					</label>
+				</fieldset>
+				<fieldset>
+					<label for="font-color">
+						<span>Font Color:</span>
+						<input id="font-color" type="color" />
+					</label>
+				</fieldset>
+				<fieldset>
+					<label for="link-color">
+						<span>Link Color:</span>
+						<input id="link-color" type="color" />
+					</label>
+				</fieldset>
+				<fieldset>
+					<label for="font-family">
+						<span>Font Family:</span>
+						<select name="font-family" id="font-family">
+							<option value="">Please choose</option>
+							<option value="'Helvetica Neue', Arial, sans-serif">Sans Serif</option>
+							<option value="'Noto Serif', Georgia, serif">Serif</option>
+						</select>
+					</label>
+				</fieldset>
+				<b>Reset all styling?</b> <span class="icon-repeat remove" id="remove"></span>
+			</form>
+			<span class="icon-remove close" id="close"></span>
+		</div>
+	</div>
+</div>
