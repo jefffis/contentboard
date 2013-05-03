@@ -27,6 +27,15 @@ class ContentsController < ApplicationController
     end
   end
 
+  def show_noedit
+    @content = Content.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @content }
+    end
+  end
+
   # GET /contents/new
   # GET /contents/new.json
   def new

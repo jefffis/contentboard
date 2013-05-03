@@ -1,57 +1,76 @@
-<div class="layout single">
+<div class="body" id="body" style="<% if !@content.background_color.blank? %>background-color: <%= @content.background_color %><% end %>">
+	<div class="layout single">
 
-	<small>
-		<span class="icon-pencil edit" data-part="global"></span>
-		<a href="/contents/new"><span class="icon-plus edit"></span></a>
-	</small>
-	
-	<header>
-		<p id="notice"><%= notice %></p>
-		<h2><%= @content.name %></h2>
-		<!--<span class="icon-pencil edit" data-part="header"></span>-->
-	</header>
+		<small>
+			<span class="icon-pencil edit styles" data-part="global"></span>
+			<span class="icon-save edit" id="save"></span>
+			<a href="/contents/new"><span class="icon-plus edit"></span></a>
+		</small>
+		
+		<header style="<% if !@content.header_background_color.blank? %>background-color: <%= @content.header_background_color %><% end %>">
+			<p id="notice"><%= notice %></p>
+			<h2><%= @content.name %></h2>
+			<!--<span class="icon-pencil edit" data-part="header"></span>-->
+		</header>
 
-	<div class="main" id="main">
-		<%= @content.content.html_safe %>
-		<!--<span class="icon-pencil edit" data-part="main"></span>-->
+		<div class="main" id="main">
+			<%= @content.content.html_safe %>
+			<!--<span class="icon-pencil edit" data-part="main"></span>-->
+		</div>
+
+		<%= link_to 'Edit the Content', edit_content_path(@content), :class => 'btn' %><%#= link_to 'Back', contents_path %>
 	</div>
-
-	<%= link_to 'Edit the Content', edit_content_path(@content), :class => 'btn' %><%#= link_to 'Back', contents_path %>
 </div>
 
 <div class="table inner nope" id="modal">
 	<div class="table-cell">
-		<div class="options global">
-			<h2>Edit Global Options:</h2>
-			<form method="">
+		<div class="options global" id="global">
+			<!--<h2>Edit Global Options:</h2>-->
+			<%= form_for(@content) do |f| %>
 				<fieldset>
-					<label for="background">
+					<label for="content_background_color">
 						<span>Background Color:</span>
-						<input id="background" type="color" />
+						<!--<input id="content_background_color" name="content[background_color]" value="" type="color" />-->
+						<input id="content_background_color" name="content[background_color]" value="<%= @content.background_color %>" type="text" />
 					</label>
 				</fieldset>
+
+				<%#= f.text_field :background_color %>
+
 				<fieldset>
-					<label for="header">
+					<label for="content_header_background_color">
 						<span>Header Background Color:</span>
-						<input id="header" type="color" />
+						<input id="content_header_background_color" name="content[header_background_color]" value="<%= @content.header_background_color %>"  type="text" />
 					</label>
 				</fieldset>
 				<fieldset>
-					<label for="main">
+					<label for="content_header_font_color">
+						<span>Header Font Color:</span>
+						<input id="content_header_font_color" name="content[header_font_color]" value="<%= @content.header_font_color %>" type="text" />
+					</label>
+				</fieldset>
+				<fieldset>
+					<label for="content_main_background_color">
 						<span>Main Content Background Color:</span>
-						<input id="main-col" type="color" />
+						<input id="content_main_background_color" name="content[main_background_color]" value="<%= @content.main_background_color %>" type="text" />
 					</label>
 				</fieldset>
 				<fieldset>
-					<label for="font-color">
+					<label for="content_font_color">
 						<span>Font Color:</span>
-						<input id="font-color" type="color" />
+						<input id="content_font_color" name="content[font_color]" value="<%= @content.font_color %>" type="text" />
 					</label>
 				</fieldset>
 				<fieldset>
-					<label for="link-color">
+					<label for="content_link_color">
 						<span>Link Color:</span>
-						<input id="link-color" type="color" />
+						<input id="content_link_color" name="content[link_color]" value="<%= @content.link_color %>" type="text" />
+					</label>
+				</fieldset>
+				<fieldset>
+					<label for="content_image_to_main" class="c">
+						<span>Add image to main content?</span>
+						<input id="content_image_to_main" name="content[image_to_main]" value="1" type="checkbox" />
 					</label>
 				</fieldset>
 				<fieldset>
@@ -64,8 +83,11 @@
 						</select>
 					</label>
 				</fieldset>
-				<b>Reset all styling?</b> <span class="icon-repeat remove" id="remove"></span>
-			</form>
+
+				<%#= f.submit %>
+
+				<!--<b>Reset all styling?</b> <span class="icon-repeat remove" id="remove"></span>-->
+			<% end %>
 			<span class="icon-remove close" id="close"></span>
 		</div>
 	</div>

@@ -18,6 +18,7 @@
 //$main-color: #301103;
 $main-color: #777;
 $main-background: #9ce8e3;
+$main-color-highlight: #fc4d2e;
 $main-link: #fe8787;
 $custom-font: 'Noto Serif', Georgia, serif;
 $sans: 'Helvetica Neue', Arial, sans-serif;
@@ -44,7 +45,7 @@ html {
 	width:100%;
 	//background: lighten(yellow, 40%);
 	//border:10px solid lighten($main-color, 10%);
-	color: lighten($main-color, 20%);
+	color: lighten($main-color, 10%);
 }
 
 body {
@@ -114,7 +115,7 @@ a {
 	}
 
 	&:hover {
-		background: $main-color;
+		background: $main-color-highlight;
 	}
 
 	&:active {
@@ -151,9 +152,10 @@ a {
 
 .table {
 	position: fixed;
+	z-index: 3;
 	top: 0;
 	left: 0;
-	background: rgba(0,0,0,0.5);
+	//background: rgba(0,0,0,0.5);
 	display: table;
 	width: 100%;
 	height: 100%;
@@ -165,7 +167,7 @@ a {
 	.options {
 		display: none;
 		max-width: 40em;
-		margin: 0 auto;
+		margin: 0;
 		padding: 2em;
 		background: white;
 		color: rgba(0,0,0,0.75);
@@ -178,8 +180,9 @@ a {
 			position: absolute;
 			top: 0;
 			right: -2em;
+			line-height: 1;
 			cursor: pointer;
-			color: white;
+			color: rgba(0,0,0,0.3);
 			font-size: 200%;
 
 			&:hover {
@@ -196,7 +199,7 @@ a {
 			cursor: pointer;
 
 			&:before {
-				background: #fc4d2e;
+				background: $main-color-highlight;
 				color: white;
 				padding: .25em .3em;
 			}
@@ -211,8 +214,9 @@ a {
 			margin-top:0;
 		}
 
-		fieldset:last-child {
-			margin: 0;
+		fieldset {
+			margin: 0 0 1em;
+			clear: right;
 		}
 
 		[type=color] {
@@ -238,6 +242,64 @@ a {
 			}
 
 		}
+
+		[type=text] {
+			display: inline-block;
+			width: auto;
+			margin:-.5em 0 .5em 0;
+			font-size: 80%;
+			padding: .5em;
+			float: right;
+		}
+
+		[type=checkbox] {
+			-webkit-appearance: none;
+			display: inline-block;
+			outline: none;
+			border: none;
+			background: rgba(0,0,0,0.1);
+			height: 20px;
+			width: 20px;
+			margin: 0;
+			position: relative;
+			top: 4px;
+			left: 5px;
+
+			&:checked {
+
+				background: $main-color-highlight;
+
+				&:before {
+					content: "\f00c";
+					font-family: 'FontAwesome';
+					position: relative;
+					top: -6px;
+					left: 2px;
+					font-size: 80%;
+					color: white;
+				}
+			}
+
+		}
+
+		.c {
+			padding-bottom: 1em;
+		}
+
+		/*.c span {
+
+			&:after {
+				content: "";
+				display: inline-block;
+				background: rgba(0,0,0,0.1);
+				height: 20px;
+				width: 20px;
+				position: relative;
+				top: 4px;
+				left: 5px;
+			}
+
+		}*/
 
 	}
 
@@ -450,10 +512,16 @@ form {
 /**********
 layouts
 **********/
+.body {
+	height: auto;
+	min-height: 100%;
+	width: 100%;
+}
 .layout {
 	max-width: 960px;
 	margin: 0 auto;
 	position: relative;
+	z-index: 1;
 
 	small {
 		display: block;
@@ -466,6 +534,7 @@ layouts
 		position: fixed;
 		left: 1em;
 		top: 1em;
+		z-index: 2;
 
 		.edit {
 			font-size: 150%;
@@ -475,13 +544,14 @@ layouts
 			background: rgba(0,0,0,0.2);
 			padding: .4em .4em .3em;
 			margin: 0 0 1em;
+			@include text-shadow;
 
 			&:hover {
-				background: #fc4d2e;
+				background: $main-color-highlight;
 			}
 
 			&:active {
-				background: #fc4d2e;
+				background: darken($main-color-highlight, 20%);
 			}
 
 			&:before {
@@ -505,7 +575,7 @@ layouts
 		background: rgba(0,0,0,0.3);
 		color: white;
 		display: table;
-		margin: 1em 0 2em;
+		margin: 0 0 2em;
 		position: relative;
 
 		h2 {
@@ -550,12 +620,31 @@ layouts
 		position: relative;
 		background: white;
 
+		&.no-edit {
+			margin: 0 0 2em;
+		}
+
 		.edit {
 			color: white;
 		}
 
 		h1, h2, h3, h4, p {
 			margin: 0 0 20px;
+		}
+
+		h1, h2, h3, h4 {
+			line-height: 1.2;
+		}
+
+		img {
+			float: right;
+			min-height: 100px;
+			min-width: 300px;
+			margin: .25em 0 2em 2em;
+			border: 0;
+			background: white;
+			padding: 1em;
+			border: 2px solid rgba(0,0,0,0.1);
 		}
 
 	}
