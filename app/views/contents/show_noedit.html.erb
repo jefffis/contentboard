@@ -1,0 +1,12 @@
+<div class="layout single">
+	<header>
+		<p id="notice"><%= notice %></p>
+		<h2><%= @content.name %></h2>
+		<!--<span class="icon-pencil edit" data-part="header"></span>-->
+	</header>
+
+	<div class="main no-edit" id="main">
+		<%= @content.content.html_safe %>
+		<!--<span class="icon-pencil edit" data-part="main"></span>-->
+	</div>
+</div>
