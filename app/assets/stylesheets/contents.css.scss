@@ -23,6 +23,9 @@ $main-link: #fe8787;
 $custom-font: 'Noto Serif', Georgia, serif;
 $sans: 'Helvetica Neue', Arial, sans-serif;
 
+// clearfix
+.cf:before,.cf:after{content:" ";display:table}.cf:after{clear:both}.cf{*zoom:1}
+
 // mixins
 @mixin text-shadow {
 	text-shadow: 0 1px 0 rgba(0,0,0,0.125), 0 2px 1px rgba(0,0,0,0.075);
@@ -123,6 +126,7 @@ a {
 		box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset;
 		padding: .8em 0;
 		color: rgba(255,255,255,0.75);
+		background: darken($main-color-highlight, 15%);
 	}
 
 }
@@ -155,7 +159,7 @@ a {
 	z-index: 3;
 	top: 0;
 	left: 0;
-	//background: rgba(0,0,0,0.5);
+	background: rgba(255,255,255,0.5);
 	display: table;
 	width: 100%;
 	height: 100%;
@@ -168,7 +172,7 @@ a {
 		display: none;
 		max-width: 40em;
 		margin: 0;
-		padding: 2em;
+		padding: 2em 2em 1em;
 		background: white;
 		color: rgba(0,0,0,0.75);
 		box-shadow: 0 1px 3px rgba(0,0,0,0.2);
@@ -178,19 +182,26 @@ a {
 		.close {
 			display: block;
 			position: absolute;
-			top: 0;
-			right: -2em;
+			top: -2.3em;
+			right: -.1em;
 			line-height: 1;
 			cursor: pointer;
-			color: rgba(0,0,0,0.3);
+			color: white;
 			font-size: 200%;
+			background: rgba(0,0,0,0.3);
+			padding: .5em .6em;
+			@include text-shadow;
 
 			&:hover {
-				opacity: .75;
+				//opacity: .75;
+				background: $main-color-highlight;
 			}
 
 			&:active {
-				opacity: .5;
+				//opacity: .5;
+				background: darken($main-color-highlight, 15%);
+				box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset;
+				color: rgba(255,255,255,0.75);
 			}
 
 		}
@@ -513,7 +524,7 @@ form {
 layouts
 **********/
 .body {
-	height: auto;
+	height: 100%;
 	min-height: 100%;
 	width: 100%;
 }
@@ -522,6 +533,18 @@ layouts
 	margin: 0 auto;
 	position: relative;
 	z-index: 1;
+
+	//@include cf;
+
+	.left, .right {
+		float: left;
+		width: 48%;
+		padding: 0 .5em 0 0;
+	}
+	.right {
+		float: right;
+		padding: 0 0 0 .5em;
+	}
 
 	small {
 		display: block;
@@ -615,7 +638,8 @@ layouts
 		font-size: 100%;
 		//color: #040407;
 		border: 2px solid rgba(0,0,0,0.075);
-		padding: 2em;
+		padding: 2em 2em 1em;
+		margin-bottom: 2em;
 		//box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 6px rgba(0,0,0,0.05);
 		position: relative;
 		background: white;
@@ -645,6 +669,20 @@ layouts
 			background: white;
 			padding: 1em;
 			border: 2px solid rgba(0,0,0,0.1);
+
+			&.w {
+				min-width: 47.5%;
+				padding: 0;
+				border: 0;
+			}
+
+		}
+
+		hr {
+			border: 0;
+			background: rgba(0,0,0,0.1);
+			height: 1px;
+			margin: 2em 0;
 		}
 
 	}
@@ -665,7 +703,21 @@ layouts
 scaffolds css
 **********/
 #notice {
-  color: green;
+  color: $main-color-highlight;
+  background: rgba(255,255,0,0.3);
+  padding: .4em;
+  display: inline-block;
+  position: fixed;
+  right: 2em;
+  top: 0;
+  max-width: 10em;
+  text-align: right;
+  font: bold 80%/1.3 $sans;
+
+	&:empty {
+		background: none;
+	}
+
 }
 
 .field_with_errors {

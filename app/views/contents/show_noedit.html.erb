@@ -1,12 +1,23 @@
-<div class="layout single">
-	<header>
-		<p id="notice"><%= notice %></p>
-		<h2><%= @content.name %></h2>
-		<!--<span class="icon-pencil edit" data-part="header"></span>-->
-	</header>
-
-	<div class="main no-edit" id="main">
-		<%= @content.content.html_safe %>
-		<!--<span class="icon-pencil edit" data-part="main"></span>-->
+<div class="body" id="body" style="<% if !@content.background_color.blank? %>background-color: <%= @content.background_color %>;<% end %><% if @content.add_font_family %>font-family: <%= @content.add_font_family %><% end %>">
+<div class="layout <% if @content.layout_type == false %>single<% else %>double<% end %>">
+		<header style="<% if !@content.header_background_color.blank? %>background-color: <%= @content.header_background_color %><% end %>">
+			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
+		</header>
+		<div class="main cf" id="main" style="<% if !@content.main_background_color.blank? %>background-color: <%= @content.main_background_color %>;<% end %><% if !@content.font_color.blank? %>color: <%= @content.font_color %><% end %>">
+			<% if @content.layout_type == false %>
+			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" /><% end %>
+			<%= @content.content.html_safe %>
+			<hr />
+			<%= @content.secondary_content.html_safe %>
+			<% else %>
+			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" class="w" /><% end %>
+			<div class="left">
+				<%= @content.content.html_safe %>
+			</div>
+			<div class="right">
+				<%= @content.secondary_content.html_safe %>
+			</div>
+			<% end %>
+		</div>
 	</div>
 </div>

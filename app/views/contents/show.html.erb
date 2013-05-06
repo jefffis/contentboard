@@ -1,27 +1,35 @@
-<div class="body" id="body" style="<% if !@content.background_color.blank? %>background-color: <%= @content.background_color %><% end %>">
-	<div class="layout single">
+<div class="body" id="body" style="<% if !@content.background_color.blank? %>background-color: <%= @content.background_color %>;<% end %><% if @content.add_font_family %>font-family: <%= @content.add_font_family %><% end %>">
 
+	<p id="notice" class="notice"><%= notice %></p>
+
+	<div class="layout <% if @content.layout_type == false %>single<% else %>double<% end %>">
 		<small>
 			<span class="icon-pencil edit styles" data-part="global"></span>
-			<span class="icon-save edit" id="save"></span>
-			<a href="/contents/new"><span class="icon-plus edit"></span></a>
+			<!--<span class="icon-save edit" id="save"></span>-->
+			<a href="<%= new_content_path %>"><span class="icon-plus edit"></span></a>
 		</small>
-		
 		<header style="<% if !@content.header_background_color.blank? %>background-color: <%= @content.header_background_color %><% end %>">
-			<p id="notice"><%= notice %></p>
-			<h2><%= @content.name %></h2>
-			<!--<span class="icon-pencil edit" data-part="header"></span>-->
+			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
 		</header>
-
-		<div class="main" id="main">
+		<div class="main cf" id="main" style="<% if !@content.main_background_color.blank? %>background-color: <%= @content.main_background_color %>;<% end %><% if !@content.font_color.blank? %>color: <%= @content.font_color %><% end %>">
+			<% if @content.layout_type == false %>
+			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" /><% end %>
 			<%= @content.content.html_safe %>
-			<!--<span class="icon-pencil edit" data-part="main"></span>-->
+			<hr />
+			<%= @content.secondary_content.html_safe %>
+			<% else %>
+			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" class="w" /><% end %>
+			<div class="left">
+				<%= @content.content.html_safe %>
+			</div>
+			<div class="right">
+				<%= @content.secondary_content.html_safe %>
+			</div>
+			<% end %>
 		</div>
-
-		<%= link_to 'Edit the Content', edit_content_path(@content), :class => 'btn' %><%#= link_to 'Back', contents_path %>
+		<%= link_to 'Edit the Content', edit_content_path(@content), :class => 'btn' %>
 	</div>
 </div>
-
 <div class="table inner nope" id="modal">
 	<div class="table-cell">
 		<div class="options global" id="global">
@@ -29,14 +37,11 @@
 			<%= form_for(@content) do |f| %>
 				<fieldset>
 					<label for="content_background_color">
-						<span>Background Color:</span>
+						<span>Main Background Color:</span>
 						<!--<input id="content_background_color" name="content[background_color]" value="" type="color" />-->
 						<input id="content_background_color" name="content[background_color]" value="<%= @content.background_color %>" type="text" />
 					</label>
 				</fieldset>
-
-				<%#= f.text_field :background_color %>
-
 				<fieldset>
 					<label for="content_header_background_color">
 						<span>Header Background Color:</span>
@@ -51,13 +56,13 @@
 				</fieldset>
 				<fieldset>
 					<label for="content_main_background_color">
-						<span>Main Content Background Color:</span>
+						<span>Content Background Color:</span>
 						<input id="content_main_background_color" name="content[main_background_color]" value="<%= @content.main_background_color %>" type="text" />
 					</label>
 				</fieldset>
 				<fieldset>
 					<label for="content_font_color">
-						<span>Font Color:</span>
+						<span>Content Font Color:</span>
 						<input id="content_font_color" name="content[font_color]" value="<%= @content.font_color %>" type="text" />
 					</label>
 				</fieldset>
@@ -68,25 +73,27 @@
 					</label>
 				</fieldset>
 				<fieldset>
-					<label for="content_image_to_main" class="c">
+					<label for="image_to_main" class="c">
 						<span>Add image to main content?</span>
-						<input id="content_image_to_main" name="content[image_to_main]" value="1" type="checkbox" />
+						<input id="image_to_main" name="image_to_main" value="1" type="checkbox" <% if @content.image_to_main == true %>checked<% end %> />
+						<input id="content_image_to_main" name="content[image_to_main]" type="hidden" value="<% if @content.image_to_main == true %>1<% else %>0<% end %>" />
 					</label>
 				</fieldset>
 				<fieldset>
 					<label for="font-family">
-						<span>Font Family:</span>
+						<span>Content Font Family:</span>
 						<select name="font-family" id="font-family">
-							<option value="">Please choose</option>
-							<option value="'Helvetica Neue', Arial, sans-serif">Sans Serif</option>
-							<option value="'Noto Serif', Georgia, serif">Serif</option>
+							<option value="'Noto Serif', Georgia, serif">Noto / Georgia</option>
+							<option value="'Helvetica Neue', Arial, sans-serif">Helvetica</option>
+							<option value="'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif">Arial Rounded</option>
+							<option value="'Century Gothic', CenturyGothic, AppleGothic, sans-serif">Century Gothic</option>
+							<option value="Futura, 'Trebuchet MS', Arial, sans-serif">Futura</option>
+							<option value="'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif">Lucida Grande</option>
+							<option value="Verdana, Geneva, sans-serif">Verdana</option>
 						</select>
+						<input id="content_add_font_family" name="content[add_font_family]" type="hidden" value="<% if @content.add_font_family %><%= @content.add_font_family %><% end %>" />
 					</label>
 				</fieldset>
-
-				<%#= f.submit %>
-
-				<!--<b>Reset all styling?</b> <span class="icon-repeat remove" id="remove"></span>-->
 			<% end %>
 			<span class="icon-remove close" id="close"></span>
 		</div>

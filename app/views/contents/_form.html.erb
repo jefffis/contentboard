@@ -15,16 +15,15 @@
     <%= f.label :name, 'Add your site header' %>
     <%= f.text_field :name %>
   </fieldset>
-  <!--<fieldset>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </fieldset>-->
   <fieldset>
     <%= f.label :content, 'Add in your page content here' %>
     <%= f.text_area :content %>
   </fieldset>
+  <fieldset>
+    <%= f.label :secondary_content, 'Add in secondary (sidebar or other) content here' %>
+    <%= f.text_area :secondary_content %>
+  </fieldset>
   <fieldset class="m">
-    <%#= f.label :layout %>
     <h2>Choose your layout:</h2>
     <%
     i = 0
@@ -39,6 +38,7 @@
     end %>
     <%= f.text_field :layout_type, :class => 'hide' %>
   </fieldset>
+
   <fieldset>
     <%= f.submit %>
   </fieldset>

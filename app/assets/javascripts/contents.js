@@ -10,6 +10,7 @@ $(function(){
 
 	var $background = $('#content_background_color');
 	var $font_fam = $('#font-family');
+	var $font_fam_field = $('#content_add_font_family');
 	var $font_col = $('#content_font_color');
 	var $header_col = $('#content_header_background_color');
 	var $header = $('header');
@@ -17,7 +18,8 @@ $(function(){
 	var $main_col = $('#content_main_background_color');
 	var $main = $('#main');
 	var $body = $('#body');
-	var $mainimg = $('#content_image_to_main');
+	var $mainimg_field = $('#content_image_to_main');
+	var $mainimg = $('#image_to_main');
 
 	var $close = $('#close');
 	var $remove = $('#remove');
@@ -50,29 +52,27 @@ $(function(){
 
 		var $name = 'background_color';
 		//$this.serialize();
-		$.post($global_form_url, { $name: $this_val });
+		//$.post($global_form_url, { $name: $this_val });
 
 		//$this.css('background-color',$this_val);
 	});
 
-	$save.on('click',function(){
+	/*$save.on('click',function(){
 		$.post($global_form_url, $global_form.serialize());
-	});
+	});*/
 
 	$font_fam.on('change',function(){
 		var $this = $(this);
 		var $this_val = $this.val();
 		$body.css('font-family',$this_val);
-		
-		//var $name = 'content[background_color]';
-		//$.post($global_form_url, { $name : $this_val });
-
+		$font_fam_field.val($this_val);
+		//alert($this_val);
 	});
 
 	$font_col.on('change',function(){
 		var $this = $(this);
 		var $this_val = $this.val();
-		$body.css('color',$this_val);
+		$main.css('color',$this_val);
 		
 		//var $name = 'content[font_color]';
 		//$.post($global_form_url, { $name : $this_val });
@@ -115,13 +115,18 @@ $(function(){
 		//alert($this.prop('checked'));
 		if($this_prop == true){
 			$main.prepend('<img src="http://placehold.it/350x150" id="image" />');
+			$mainimg_field.val(1);
 		}else{
 			$main.find('#image').remove();
+			$mainimg_field.val(0);
 		}
 		//$.post($global_form_url, $global_form.serialize());
 	});
 
+	//alert($main.data('image'));
+
 	$close.on('click',function(){
+		$.post($global_form_url, $global_form.serialize());
 		$modal.addClass('nope');
 		$modal.find('.options').removeClass('yepp');
 	});

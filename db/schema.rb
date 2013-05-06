@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130503195115) do
+ActiveRecord::Schema.define(:version => 20130506135006) do
 
   create_table "contents", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130503195115) do
     t.string   "link_color"
     t.boolean  "image_to_main"
     t.string   "add_font_family"
+    t.text     "secondary_content"
   end
 
 end
