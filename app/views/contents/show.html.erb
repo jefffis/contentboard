@@ -4,9 +4,11 @@
 
 	<div class="layout <% if @content.layout_type == false %>single<% else %>double<% end %>">
 		<small>
-			<span class="icon-pencil edit styles" data-part="global"></span>
-			<!--<span class="icon-save edit" id="save"></span>-->
+			<span class="icon-cog edit styles" data-part="global"></span>
+			<a href="<%= edit_content_path(@content) %>"><span class="icon-pencil edit"></span></a>
+			<a href="mailto:?subject:Check this out <%= request.protocol %><%= request.host_with_port %>/contents/share/<%= @content.id %>" target="_blank"><span class="icon-envelope-alt edit"></span></a>
 			<a href="<%= new_content_path %>"><span class="icon-plus edit"></span></a>
+			<!--<a href="/"><span class="icon-home edit"></span></a>-->
 		</small>
 		<header style="<% if !@content.header_background_color.blank? %>background-color: <%= @content.header_background_color %><% end %>">
 			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
@@ -27,13 +29,14 @@
 			</div>
 			<% end %>
 		</div>
-		<%= link_to 'Edit the Content', edit_content_path(@content), :class => 'btn' %>
+		<%#= link_to 'Edit the Content', edit_content_path(@content), :class => 'btn' %>
 	</div>
 </div>
 <div class="table inner nope" id="modal">
 	<div class="table-cell">
 		<div class="options global" id="global">
-			<!--<h2>Edit Global Options:</h2>-->
+			<h2>Edit Global Options</h2>
+			<p>Use any valid CSS syntax: rgba, hsla or hex; <em><strong>changes are saved on close.</strong></em></p>
 			<%= form_for(@content) do |f| %>
 				<fieldset>
 					<label for="content_background_color">
