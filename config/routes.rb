@@ -3,7 +3,7 @@ Contentboardd::Application.routes.draw do
 
   root :to => "contents#index"
 
-  match "/contents/share/:id(.:format)" => "contents#show_noedit"
+  match "/contents/s/:id(.:format)" => "contents#show_noedit"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

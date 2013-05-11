@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html class="yep">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Contentboard</title>
+	<title><% if @content %><%= @content.title %><% else %>Contentboard | Mock up your content like it's going to be, without the hassle.<% end %></title>
 	<link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= csrf_meta_tags %>
-	<%= javascript_include_tag "application" %>
-	<%#= include_tiny_mce_if_needed %>
 </head>
-<body>
+<body class="yep">
 	<%= yield %>
+	<%= javascript_include_tag "application" %>
+	<script type="text/javascript">
+		$('.rte-zone').rte('/assets/contents.css', '/assets/');
+	</script>
 </body>
 </html>

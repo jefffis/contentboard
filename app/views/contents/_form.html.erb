@@ -12,16 +12,20 @@
   <% end %>
 
   <fieldset>
+    <%= f.label :title, 'Add your page title' %>
+    <%= f.text_field :title %>
+  </fieldset>
+  <fieldset>
     <%= f.label :name, 'Add your site header' %>
     <%= f.text_field :name %>
   </fieldset>
   <fieldset>
     <%= f.label :content, 'Add in your page content here' %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :class => 'rte-zone' %>
   </fieldset>
   <fieldset>
     <%= f.label :secondary_content, 'Add in secondary (sidebar or other) content here' %>
-    <%= f.text_area :secondary_content %>
+    <%= f.text_area :secondary_content, :class => 'rte-zone' %>
   </fieldset>
   <fieldset class="m">
     <h2>Choose your layout:</h2>

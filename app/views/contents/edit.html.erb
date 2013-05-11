@@ -1,4 +1,10 @@
+<% url = request.fullpath.split('/') %>
 <%= render :partial=>"partials/header" %>
+<div class="layout">
+		<small>
+			<%= link_to(@content) do %><span class="icon-remove edit"></span><% end %>
+		</small>
+</div>
 <%= render 'form' %>
 <%#= link_to 'Show', @content %><%#= link_to 'Back', contents_path %>
 <%= render :partial=>"partials/footer" %>

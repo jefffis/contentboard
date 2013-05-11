@@ -20,6 +20,9 @@ $(function(){
 	var $body = $('#body');
 	var $mainimg_field = $('#content_image_to_main');
 	var $mainimg = $('#image_to_main');
+	var $content_link_color = $('#content_link_color');
+	var $content_title = $('#content_title');
+	var $page_title = $('title');
 
 	var $close = $('#close');
 	var $remove = $('#remove');
@@ -121,6 +124,18 @@ $(function(){
 			$mainimg_field.val(0);
 		}
 		//$.post($global_form_url, $global_form.serialize());
+	});
+
+	$content_link_color.on('change',function(){
+		var $this = $(this);
+		var $this_val = $this.val();
+		$main.find('a').css('color',$this_val);
+	});
+
+	$content_title.on('change',function(){
+		var $this = $(this);
+		var $this_val = $this.val();
+		$page_title.text($this_val);
 	});
 
 	//alert($main.data('image'));

@@ -1,5 +1,7 @@
+<% url = request.fullpath.split('/') %>
 <div class="table-cell">
-	<div class="wrapper">
+	<div class="wrapper<% if url[3] == 'edit' %> edit<% end %>">
+		<% if url[3] != 'edit' %>
 		<header role="banner">
 		  <h2>
 		  	<a href="/">Contentboard
@@ -7,3 +9,4 @@
 		  	</a>
 		  </h2>
 		</header>
+		<% end %>

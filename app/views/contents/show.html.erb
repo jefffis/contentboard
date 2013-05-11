@@ -6,14 +6,23 @@
 		<small>
 			<span class="icon-cog edit styles" data-part="global"></span>
 			<a href="<%= edit_content_path(@content) %>"><span class="icon-pencil edit"></span></a>
-			<a href="mailto:?subject:Check this out <%= request.protocol %><%= request.host_with_port %>/contents/share/<%= @content.id %>" target="_blank"><span class="icon-envelope-alt edit"></span></a>
+			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/contents/s/<%= @content.id %>"><span class="icon-envelope-alt edit"></span></a>
 			<a href="<%= new_content_path %>"><span class="icon-plus edit"></span></a>
 			<!--<a href="/"><span class="icon-home edit"></span></a>-->
 		</small>
 		<header style="<% if !@content.header_background_color.blank? %>background-color: <%= @content.header_background_color %><% end %>">
 			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
 		</header>
-		<div class="main cf" id="main" style="<% if !@content.main_background_color.blank? %>background-color: <%= @content.main_background_color %>;<% end %><% if !@content.font_color.blank? %>color: <%= @content.font_color %><% end %>">
+		<div class="main cf" id="main" style="<% if !@content.main_background_color.blank? %>background-color: <%= @content.main_background_color %>;<% end %><% if !@content.font_color.blank? %>color: <%= @content.font_color %>;<% end %>">
+			
+			<% if !@content.link_color.blank? %>
+			<style scoped>
+				a {
+					color: <%= @content.link_color %>;
+				}
+			</style>
+			<% end %>
+
 			<% if @content.layout_type == false %>
 			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" /><% end %>
 			<%= @content.content.html_safe %>
@@ -38,6 +47,13 @@
 			<h2>Edit Global Options</h2>
 			<p>Use any valid CSS syntax: rgba, hsla or hex; <em><strong>changes are saved on close.</strong></em></p>
 			<%= form_for(@content) do |f| %>
+				<fieldset>
+					<label for="content_title">
+						<span>Page Title:</span>
+						<!--<input id="content_background_color" name="content[background_color]" value="" type="color" />-->
+						<input id="content_title" name="content[title]" value="<%= @content.title %>" type="text" />
+					</label>
+				</fieldset>
 				<fieldset>
 					<label for="content_background_color">
 						<span>Main Background Color:</span>
@@ -75,13 +91,13 @@
 						<input id="content_link_color" name="content[link_color]" value="<%= @content.link_color %>" type="text" />
 					</label>
 				</fieldset>
-				<fieldset>
+				<!--<fieldset>
 					<label for="image_to_main" class="c">
 						<span>Add image to main content?</span>
 						<input id="image_to_main" name="image_to_main" value="1" type="checkbox" <% if @content.image_to_main == true %>checked<% end %> />
 						<input id="content_image_to_main" name="content[image_to_main]" type="hidden" value="<% if @content.image_to_main == true %>1<% else %>0<% end %>" />
 					</label>
-				</fieldset>
+				</fieldset>-->
 				<fieldset>
 					<label for="font-family">
 						<span>Content Font Family:</span>
