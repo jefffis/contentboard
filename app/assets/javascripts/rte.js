@@ -71,7 +71,8 @@ jQuery.fn.rte = function(css_url, media_url) {
         // Mozilla need this to display caret
         if($.trim(content)=='')
             content = '<br>';
-        var doc = "<html><head>"+css+"</head><body class='frameBody'>"+content+"</body></html>";
+        //var doc = "<html><head>"+css+"</head><body class='frameBody'>"+content+"</body></html>";
+        var doc = "<html><body class='frameBody'>"+content+"</body></html>";
         tryEnableDesignMode(iframe, doc, function() {
             $("#toolbar-"+iframe.title).remove();
             $(iframe).before(toolbar(iframe));
@@ -104,21 +105,22 @@ jQuery.fn.rte = function(css_url, media_url) {
         var tb = $("<div class='rte-toolbar' id='toolbar-"+iframe.title+"'><div>\
             <p>\
                 <select>\
-                    <option value=''>Bloc style</option>\
                     <option value='p'>Paragraph</option>\
-                    <option value='h3'>Title</option>\
+                    <option value='h2'>Title</option>\
+                    <option value='h3'>Subtitle</option>\
+                    <option value='blockquote'>Quote</option>\
                 </select>\
                 <span class='icon-angle-down'></span>\
             </p>\
             <p>\
-                <a href='#' class='bold icon-bold'><img src='"+media_url+"bold.gif' alt='bold' /></a>\
-                <a href='#' class='italic icon-italic'><img src='"+media_url+"italic.gif' alt='italic' /></a>\
+                <a href='#' class='bold icon-bold'><!--<img src='"+media_url+"bold.gif' alt='bold' />--></a>\
+                <a href='#' class='italic icon-italic'><!--<img src='"+media_url+"italic.gif' alt='italic' />--></a>\
             </p>\
             <p>\
-                <a href='#' class='unorderedlist icon-list-ul'><img src='"+media_url+"unordered.gif' alt='unordered list' /></a>\
-                <a href='#' class='link icon-link'><img src='"+media_url+"link.png' alt='link' /></a>\
-                <a href='#' class='image icon-picture'><img src='"+media_url+"image.png' alt='image' /></a>\
-                <a href='#' class='disable icon-resize-full'><img src='"+media_url+"close.gif' alt='close rte' /></a>\
+                <a href='#' class='unorderedlist icon-list-ul'><!--<img src='"+media_url+"unordered.gif' alt='unordered list' />--></a>\
+                <a href='#' class='link icon-link'><!--<img src='"+media_url+"link.png' alt='link' />--></a>\
+                <a href='#' class='image icon-picture'><!--<img src='"+media_url+"image.png' alt='image' />--></a>\
+                <a href='#' class='disable icon-resize-full'><!--<img src='"+media_url+"close.gif' alt='close rte' />--></a>\
             </p></div></div>");
         $('select', tb).change(function(){
             var index = this.selectedIndex;
@@ -142,10 +144,11 @@ jQuery.fn.rte = function(css_url, media_url) {
             return false; });
         $('.disable', tb).click(function() {
             var txt = disableDesignMode(iframe);
-            var edm = $('<a href="#">Enable design mode</a>');
+            var edm = $('<span class="close icon-resize-small"> Hide Code</span>');
             tb.empty().append(edm);
             edm.click(function(){
                 enableDesignMode(txt);
+                edm.parent().hide();
                 return false;
             });
             return false; 

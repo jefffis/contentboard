@@ -12,8 +12,11 @@
 <body class="yep">
 	<%= yield %>
 	<%= javascript_include_tag "application" %>
+	<% url = request.fullpath.split('/') %>
+	<% if url[3] == 'edit' || url[2] == 'new' %>
 	<script type="text/javascript">
 		$('.rte-zone').rte('/assets/contents.css', '/assets/');
 	</script>
+	<% end %>
 </body>
 </html>

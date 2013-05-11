@@ -76,6 +76,11 @@ body {
 		min-height: 100%;
 		width: 100%;
 		min-width: 100%;
+		max-width: 50em;
+	}
+
+	&.frameBody {
+		color: white;
 	}
 	
 	//padding:1em 2em;
@@ -90,9 +95,7 @@ body {
 		margin:0 auto;
 		padding:1em 0 2em;
 	}*/
-	max-width: 50em;
 	//margin:0 auto;
-
 	display: table;
 
 }
@@ -122,6 +125,7 @@ small {
 // button links
 .btn, .btn:visited, [type=submit] {
 	//background: $main-link;
+	letter-spacing: -1px;
 	font: bold 150%/1 $custom-font;
 	background: lighten($main-color, 25%);
 	color: white;
@@ -245,12 +249,12 @@ small {
 
 			&:hover {
 				//opacity: .75;
-				background: $main-color-highlight;
+				background: lighten($main-color-highlight, 10%);
 			}
 
 			&:active {
 				//opacity: .5;
-				background: darken($main-color-highlight, 15%);
+				background: $main-color-highlight;
 				box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset;
 				color: rgba(255,255,255,0.75);
 			}
@@ -378,11 +382,12 @@ small {
 }
 
 header {
-
+	
 	h2 {
 		text-align: center;
 		//text-transform: uppercase;
 		font-size: 2em;
+		letter-spacing: -3px;
 
 		span {
 			padding-left:5px;
@@ -435,6 +440,19 @@ form {
 
 		.rte-toolbar {
 
+			.close {
+				cursor: pointer;
+
+				&:hover {
+					color: $main-color-highlight;
+				}
+
+				&:active {
+					opacity: .65;
+				}
+
+			}
+
 			select {
 				-webkit-appearance: none;
 				padding: .5em 2em .5em .5em;
@@ -483,6 +501,16 @@ form {
 						margin: .2em 0 0 .2em;
 						border: 1px solid rgba(0,0,0,0.1);
 						color: rgba(0,0,0,0.5);
+
+						&:hover {
+							border: 1px solid $main-color-highlight;
+							color: $main-color-highlight;
+						}
+
+						&:active {
+							opacity: .65;
+						}
+
 					}
 
 				}
@@ -492,10 +520,11 @@ form {
 		}
 
 		iframe.rte-zone {
-			//border: 3px solid rgba(0,0,0,0.1);
+			border-bottom: 3px solid rgba(0,0,0,0.1);
 			border-top: 0;
 			padding: 1em 1em 0;
-			background: rgba(0,0,0,0.75);
+			//background: rgba(0,0,0,0.75);
+			background: white;
 
 		}
 
@@ -540,6 +569,7 @@ form {
 		[type=submit] {
 			margin-top: 2em;
 			padding-bottom: 1em;
+			letter-spacing: 0;
 
 			&:active {
 				padding: .8em 0 .95em;
@@ -589,6 +619,11 @@ form {
 				//opacity: .35;
 				outline: 3px solid rgba(0,0,0,0.1);
 				background: white;
+
+				&:hover {
+					outline-color: $main-color-highlight;
+				}
+
 			}
 
 			span {
@@ -607,8 +642,19 @@ form {
 				opacity: .75;
 			}
 
+			&:hover span {
+				background: $main-color-highlight;
+			}
+
 			&:active, &.checked, &.checked:hover {
 				opacity: .5;
+			}
+
+			&.checked img {
+				outline-color: $main-color-highlight;
+			}
+			&.checked span {
+				background: $main-color-highlight;
 			}
 
 			/*&:before {
@@ -711,27 +757,68 @@ layouts
 			display: block;
 			background: rgba(0,0,0,0.35);
 			padding: 0;
-			text-align: left;
+			text-align: center;
 			width: 2.1em;
 			//margin: 0 0 1em;
+			overflow: hidden;
 			@include text-shadow;
 
 			&:hover {
-				background: $main-color-highlight;
+				background: lighten($main-color-highlight, 10%);
 			}
 
 			&:active {
-				background: darken($main-color-highlight, 20%);
+				background: $main-color-highlight;
 			}
 
 			&:before {
-				padding: .65em;
+				padding: .65em 0;
 				background: none;
 				width: 100%;
 			}
 
 			&:hover:before, &:active:before {
 				background: none;
+			}
+
+		}
+
+	}
+
+	@media screen and (max-width:70em){
+		small {
+			left: 0;
+			top: auto;
+			bottom: 0;
+			padding: 0;
+			width: 100%;
+
+			.edit {
+				width: 25%;
+				float: left;
+				//background: darken($main-color, 40%);
+
+				&:before {
+					padding: 1em 0;
+				}
+
+			}
+
+			&.cls {
+				top: 1em;
+				left: 1em;
+				padding: .5em;
+				bottom: auto;
+
+				.edit {
+					width: 2.1em;
+
+					&:before {
+						padding: .65em 0;
+					}
+
+				}
+
 			}
 
 		}
@@ -812,6 +899,10 @@ layouts
 			font-size: 90%;
 		}
 
+		li {
+			margin-bottom: .75em;
+		}
+
 		img {
 			float: right;
 			//min-height: 100px;
@@ -847,7 +938,7 @@ layouts
 		img {
 			float: none;
 			margin: 0 0 2em;
-			width: 100%;
+			max-width: 100%;
 		}
 
 	}
@@ -856,10 +947,22 @@ layouts
 		padding: 0 0 0 .5em;
 		//font-size: 70%;
 
-		p {
-			//font-size: 122.5%;
+		div, span {
+			font-size: 90%;
 		}
 
+		p, li {
+			font-size: 100%;
+		}
+
+	}
+
+	@media screen and (max-width:50em){
+		.left, .right {
+			width: 100%;
+			float: none;
+			padding: 0;
+		}
 	}
 
 	.btn {

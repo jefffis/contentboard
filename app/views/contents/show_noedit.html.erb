@@ -17,16 +17,16 @@
 			<% end %>
 			<% if @content.layout_type == false %>
 			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" /><% end %>
-			<%= @content.content.html_safe %>
+			<% if !@content.content.blank? %><%= @content.content.html_safe %><% end %>
 			<hr />
-			<%= @content.secondary_content.html_safe %>
+			<% if !@content.secondary_content.blank? %><%= @content.secondary_content.html_safe %><% end %>
 			<% else %>
 			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" class="w" /><% end %>
 			<div class="left">
-				<%= @content.content.html_safe %>
+				<% if !@content.content.blank? %><%= @content.content.html_safe %><% end %>
 			</div>
 			<div class="right">
-				<%= @content.secondary_content.html_safe %>
+				<% if !@content.secondary_content.blank? %><%= @content.secondary_content.html_safe %><% end %>
 			</div>
 			<% end %>
 		</div>
