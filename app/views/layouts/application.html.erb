@@ -16,6 +16,13 @@
 	<% if url[3] == 'edit' || url[2] == 'new' %>
 	<script type="text/javascript">
 		$('.rte-zone').rte('/assets/contents.css', '/assets/');
+		<% if @content.layout_type == true %>
+		$('#two-column').parent().addClass('checked');
+		<% elsif @content.layout_type == false %>
+		$('#single-column').parent().addClass('checked');
+		<% else %>
+		$('#single-column').parent().addClass('checked');
+		<% end %>
 	</script>
 	<% end %>
 </body>

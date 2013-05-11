@@ -312,9 +312,9 @@ small {
 		[type=text] {
 			display: inline-block;
 			width: auto;
-			margin:-.5em 0 .5em 0;
+			margin:-.8em 0 .5em 0;
 			font-size: 80%;
-			padding: .5em;
+			padding: .8em;
 			float: right;
 		}
 
@@ -377,6 +377,21 @@ small {
 
 		}
 
+		@media screen and (max-width:50em){
+
+			fieldset {
+				margin-bottom: 2em;
+			}
+
+			[type=text], select {
+				display: block;
+				clear: both;
+				margin: .5em 0;
+				float: none;
+				width: 100%;
+			}
+		}
+
 	}
 
 }
@@ -388,6 +403,7 @@ header {
 		//text-transform: uppercase;
 		font-size: 2em;
 		letter-spacing: -3px;
+		margin: 0 0 .5em;
 
 		span {
 			padding-left:5px;
@@ -411,6 +427,8 @@ header {
 
 // form
 form {
+
+	padding-top: 2em;
 
 	fieldset {
 		border: 0;
@@ -736,6 +754,10 @@ layouts
 	margin: 0 auto;
 	position: relative;
 	z-index: 1;
+
+	+ form {
+		padding-top: 0;
+	}
 
 	small {
 		display: block;

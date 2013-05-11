@@ -85,7 +85,7 @@ $(function(){
 	$header_col.on('change',function(){
 		var $this = $(this);
 		var $this_val = $this.val();
-		$header.css('background-color',$this_val);
+		$header.css('background',$this_val);
 		
 		//var $name = 'content[header_background_color]';
 		//$.post($global_form_url, $global_form.serialize());

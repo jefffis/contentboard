@@ -4,7 +4,7 @@
 			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/contents/share/<%= @content.id %>"><span class="icon-envelope-alt edit"></span></a>
 			<a href="<%= new_content_path %>"><span class="icon-plus edit"></span></a>
 		</small>
-		<header style="<% if !@content.header_background_color.blank? %>background-color: <%= @content.header_background_color %><% end %>">
+		<header style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
 			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
 		</header>
 		<div class="main cf" id="main" style="<% if !@content.main_background_color.blank? %>background-color: <%= @content.main_background_color %>;<% end %><% if !@content.font_color.blank? %>color: <%= @content.font_color %>;<% end %>">
