@@ -19,6 +19,7 @@ class ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.json
   def show
+    #@content_id = Content.find(params[:id])
     @content = Content.find_by_unique_string(params[:id])
 
     respond_to do |format|
@@ -72,7 +73,7 @@ class ContentsController < ApplicationController
   # PUT /contents/1
   # PUT /contents/1.json
   def update
-    @content = Content.find(params[:id])
+    @content = Content.find_by_unique_string(params[:id])
 
     respond_to do |format|
       if @content.update_attributes(params[:content])
