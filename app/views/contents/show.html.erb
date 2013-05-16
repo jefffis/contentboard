@@ -8,9 +8,9 @@
 		<small>
 			<span class="icon-cog edit styles" data-part="global"></span>
 			<a href="<%= edit_content_path(@content) %>"><span class="icon-pencil edit"></span></a>
-			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/contents/s/<%= @content.id %>"><span class="icon-envelope-alt edit"></span></a>
+			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/c/s/<%= @content.unique_string %>" target="_blank"><span class="icon-envelope-alt edit"></span></a>
+			<!--<a href="<%= request.protocol %><%= request.host_with_port %>/c/s/<%= @content.unique_string %>"><span class="icon-reply edit flipped"></span></a>-->
 			<a href="<%= new_content_path %>"><span class="icon-plus edit"></span></a>
-			<!--<a href="/"><span class="icon-home edit"></span></a>-->
 		</small>
 		<header style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
 			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
