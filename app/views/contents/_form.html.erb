@@ -41,6 +41,9 @@
     i+=1
     end %>
     <%= f.text_field :layout_type, :class => 'hide' %>
+    <% random = (0...8).map{(65+rand(26)).chr}.join %>
+    <%#= f.text_field :unique_string , :class => 'hide', :value => '#{random}' %>
+    <input id="content_unique_string" name="content[unique_string]" size="30" type="hidden" value="<%= random %>" />
   </fieldset>
 
   <fieldset>

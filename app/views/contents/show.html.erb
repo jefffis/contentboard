@@ -1,3 +1,5 @@
+<%#= @content.unique_string %>
+
 <div class="body" id="body" style="<% if !@content.background_color.blank? %>background-color: <%= @content.background_color %>;<% end %><% if @content.add_font_family %>font-family: <%= @content.add_font_family %><% end %>">
 
 	<p id="notice" class="notice"><%= notice %></p>

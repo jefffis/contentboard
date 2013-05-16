@@ -3,7 +3,10 @@ Contentboardd::Application.routes.draw do
 
   root :to => "contents#index"
 
-  match "/contents/s/:id(.:format)" => "contents#show_noedit"
+  match "/c/s/:id(.:format)" => "contents#show_noedit"
+  #match "/contents/:unique_string(.:format)" => "contents#show"
+
+  #match "/:random_id" => "contents#show", :constraints => {:random_id => /([a-zA-Z]|\d){3,6}/}, :as => 'random_route'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
