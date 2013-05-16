@@ -1,3 +1,5 @@
+//= require jquery
+
 $(function(){
 	//var $radios = $('input[type=radio]');
 	var $radio_labels = $('label.i');
