@@ -11,7 +11,6 @@
 </head>
 <body class="yep">
 	<%= yield %>
-	<%= javascript_include_tag "contents" %>
 	<% url = request.fullpath.split('/') %>
 	<% if url[3] == 'edit' || url[2] == 'new' %>
 	<%= javascript_include_tag "application" %>
@@ -31,6 +30,8 @@
 		$('#single-column').parent().addClass('checked');
 		<% end %>
 	</script>
+	<% else %>
+	<%= javascript_include_tag "contents" %>
 	<% end %>
 </body>
 </html>
