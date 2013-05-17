@@ -14,15 +14,18 @@
 	<% url = request.fullpath.split('/') %>
 	<% if url[3] == 'edit' || url[2] == 'new' %>
 	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "contents" %>
 	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 	<script type="text/javascript">
 		tinymce.init(
 			{
 				selector:'textarea',
-				height : 300
+				height : 300,
+				plugins: ['link'],
+				toolbar: 'undo redo | styleselect | bold italic | link | bullist numlist | hr | blockquote code',
+				menubar : false
 			}
 		);
-		//$('.rte-zone').rte('/assets/contents.css', '/assets/');
 		<% if @content.layout_type == true %>
 		$('#two-column').parent().addClass('checked');
 		<% elsif @content.layout_type == false %>
