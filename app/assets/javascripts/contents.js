@@ -13,6 +13,8 @@ $(function(){
 	var $background = $('#content_background_color');
 	var $font_fam = $('#font-family');
 	var $font_fam_field = $('#content_add_font_family');
+	var $font_family_body = $('#font-family-body');
+	var $font_fam_field_body = $('#content_body_font_family');
 	var $font_col = $('#content_font_color');
 	var $header_col = $('#content_header_background_color');
 	var $header = $('header');
@@ -25,6 +27,7 @@ $(function(){
 	var $content_link_color = $('#content_link_color');
 	var $content_title = $('#content_title');
 	var $page_title = $('title');
+	//var $layout_type = $('#layout-type');
 
 	var $close = $('#close');
 	var $remove = $('#remove');
@@ -74,6 +77,15 @@ $(function(){
 		//alert($this_val);
 	});
 
+	$font_family_body.on('change',function(){
+		var $this = $(this);
+		var $this_val = $this.val();
+		$main.find('p, li').css('font-family',$this_val);
+		$('style#body_copy_inline').remove();
+		$font_fam_field_body.val($this_val);
+		//alert($this_val);
+	});
+
 	$font_col.on('change',function(){
 		var $this = $(this);
 		var $this_val = $this.val();
@@ -119,7 +131,11 @@ $(function(){
 		var $this_prop = $this.prop('checked');
 		//alert($this.prop('checked'));
 		if($this_prop == true){
-			$main.prepend('<img src="http://placehold.it/350x150" id="image" />');
+			if($layout_type.text()=='single'){
+				$main.prepend('<img src="http://placehold.it/350x150" id="image" />');
+			}else{
+				$main.find('div.right').prepend('<img src="http://placehold.it/350x150" id="image" />');
+			}
 			$mainimg_field.val(1);
 		}else{
 			$main.find('#image').remove();

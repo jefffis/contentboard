@@ -4,6 +4,8 @@
 
 	<p id="notice" class="notice"><%= notice %></p>
 
+	<div id="layout-type" style="display:none"><% if @content.layout_type == false %>single<% else %>double<% end %></div>
+
 	<div class="layout <% if @content.layout_type == false %>single<% else %>double<% end %>">
 		<small>
 			<span class="icon-cog edit styles" data-part="global"></span>
@@ -21,6 +23,14 @@
 			<style scoped>
 				a {
 					color: <%= @content.link_color %>;
+				}
+			</style>
+			<% end %>
+
+			<% if !@content.body_font_family.blank? %>
+			<style scoped id="body_copy_inline">
+				p, li {
+					font-family: <%= @content.body_font_family.html_safe %>;
 				}
 			</style>
 			<% end %>
@@ -93,16 +103,16 @@
 						<input id="content_link_color" name="content[link_color]" value="<%= @content.link_color %>" type="text" />
 					</label>
 				</fieldset>
-				<!--<fieldset>
+				<fieldset>
 					<label for="image_to_main" class="c">
 						<span>Add image to main content?</span>
 						<input id="image_to_main" name="image_to_main" value="1" type="checkbox" <% if @content.image_to_main == true %>checked<% end %> />
 						<input id="content_image_to_main" name="content[image_to_main]" type="hidden" value="<% if @content.image_to_main == true %>1<% else %>0<% end %>" />
 					</label>
-				</fieldset>-->
+				</fieldset>
 				<fieldset>
 					<label for="font-family">
-						<span>Content Font Family:</span>
+						<span>Header Font Family:</span>
 						<select name="font-family" id="font-family">
 							<option value="'Noto Serif', Georgia, serif">Noto / Georgia</option>
 							<option value="'Helvetica Neue', Arial, sans-serif">Helvetica</option>
@@ -113,6 +123,21 @@
 							<option value="Verdana, Geneva, sans-serif">Verdana</option>
 						</select>
 						<input id="content_add_font_family" name="content[add_font_family]" type="hidden" value="<% if @content.add_font_family %><%= @content.add_font_family %><% end %>" />
+					</label>
+				</fieldset>
+				<fieldset>
+					<label for="font-family">
+						<span>Body Font Family:</span>
+						<select name="font-family" id="font-family-body">
+							<option value="'Noto Serif', Georgia, serif">Noto / Georgia</option>
+							<option value="'Helvetica Neue', Arial, sans-serif">Helvetica</option>
+							<option value="'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif">Arial Rounded</option>
+							<option value="'Century Gothic', CenturyGothic, AppleGothic, sans-serif">Century Gothic</option>
+							<option value="Futura, 'Trebuchet MS', Arial, sans-serif">Futura</option>
+							<option value="'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif">Lucida Grande</option>
+							<option value="Verdana, Geneva, sans-serif">Verdana</option>
+						</select>
+						<input id="content_body_font_family" name="content[body_font_family]" type="hidden" value="<% if @content.body_font_family %><%= @content.body_font_family %><% end %>" />
 					</label>
 				</fieldset>
 			<% end %>
