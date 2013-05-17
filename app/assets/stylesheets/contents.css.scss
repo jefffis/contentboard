@@ -867,6 +867,13 @@ layouts
 			//font-family: $sans;
 			font-weight: bold;
 		}
+
+		@media screen and (max-width:50em) {
+			h2 {
+				padding: 0 1em;
+			}
+		}
+
 	}
 
 	.edit {
@@ -998,6 +1005,13 @@ layouts
 
 	}
 
+}
+
+@media screen and (max-width:50em) {
+	.main > img {
+		margin-left: 0;
+		width: 100%;
+	}
 }
 
 /**********
