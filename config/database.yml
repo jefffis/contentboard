@@ -32,11 +32,12 @@ test:
   socket: /tmp/mysql.sock
 
 production:
+  host: rails-db3
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: contentboardd_production
+  database: contentboard
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: contentboard
+  password: CL5wsA3Z
+  #socket: /tmp/mysql.sock
