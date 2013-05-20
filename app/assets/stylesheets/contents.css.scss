@@ -209,7 +209,7 @@ small {
 }
 
 .table {
-	position: fixed;
+	position: absolute;
 	z-index: 3;
 	top: 0;
 	left: 0;
@@ -296,6 +296,12 @@ small {
 		fieldset {
 			margin: 0 0 1em;
 			clear: right;
+
+			&.t {
+				position: relative;
+				top: -.5em;
+			}
+
 		}
 
 		[type=color] {
@@ -325,7 +331,7 @@ small {
 		[type=text] {
 			display: inline-block;
 			width: auto;
-			margin:-.8em 0 .5em 0;
+			margin:-.9em 0 .5em 0;
 			font-size: 80%;
 			padding: .8em;
 			float: right;
@@ -795,7 +801,7 @@ layouts
 			text-align: center;
 			width: 2.1em;
 			//margin: 0 0 1em;
-			overflow: hidden;
+			//overflow: hidden;
 			@include text-shadow;
 
 			&:hover {
@@ -811,9 +817,30 @@ layouts
 				background: none;
 				width: 100%;
 			}
+			
+			span {
+				position: relative;
+				&:after {
+					content: attr(data-title);
+					position: absolute;
+					text-shadow: none;
+					color: rgba(0,0,0,0.5);
+					font: bold 65%/1 'Archivo Narrow', sans-serif;
+					width: 100px;
+					top: 5px;
+					right: -110px;
+					text-align: left;
+					opacity: 1;
+					display: none;
+				}
+			}
 
 			&:hover:before, &:active:before {
 				background: none;
+			}
+
+			&:hover span:after {
+				display: block;
 			}
 
 		}
@@ -835,6 +862,12 @@ layouts
 
 				&:before {
 					padding: 1em 0;
+				}
+
+				span {
+					&:after {
+						content: "";
+					}
 				}
 
 			}

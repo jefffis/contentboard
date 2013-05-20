@@ -2,7 +2,7 @@
 <%= render :partial=>"partials/header" %>
 <div class="layout">
 		<small class="cls">
-			<%= link_to(@content) do %><span class="icon-remove edit"></span><% end %>
+			<%= link_to(@content) do %><span class="icon-remove edit"><span data-title="Cancel"></span></span><% end %>
 		</small>
 </div>
 <%= render 'form' %>

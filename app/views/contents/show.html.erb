@@ -6,13 +6,13 @@
 
 	<div id="layout-type" style="display:none"><% if @content.layout_type == false %>single<% else %>double<% end %></div>
 
-	<div class="layout <% if @content.layout_type == false %>single<% else %>double<% end %>">
+	<div class="layout <% if !@content.layout_type.blank? %><% if @content.layout_type == false %>single<% else %>double<% end %><% else %>single<% end %>">
 		<small>
-			<span class="icon-cog edit styles" data-part="global"></span>
-			<a href="<%= edit_content_path(@content) %>"><span class="icon-pencil edit"></span></a>
-			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank"><span class="icon-envelope-alt edit"></span></a>
-			<a href="<%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>"><span class="icon-share-alt edit"></span></a>
-			<a href="<%= new_content_path %>"><span class="icon-plus edit"></span></a>
+			<span class="icon-cog edit styles" data-part="global"><span data-title="Edit global styles"></span></span>
+			<a href="<%= edit_content_path(@content) %>"><span class="icon-pencil edit"><span data-title="Edit content / layout"></span></span></a>
+			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank"><span class="icon-envelope-alt edit"><span data-title="Share via email"></span></span></a>
+			<a href="<%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>"><span class="icon-share-alt edit"><span data-title="Get sharable link"></span></span></a>
+			<a href="<%= new_content_path %>"><span class="icon-plus edit"><span data-title="Create new"></span></span></a>
 		</small>
 		<header style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
 			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
@@ -35,6 +35,10 @@
 			</style>
 			<% end %>
 
+			<%
+			# if choice is made upon creation
+			if !@content.layout_type.blank? %>
+
 			<% if @content.layout_type == false %>
 			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" /><% end %>
 			<% if !@content.content.blank? %><%= @content.content.html_safe %><% end %>
@@ -48,6 +52,14 @@
 				<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" class="w" /><% end %>
 				<% if !@content.secondary_content.blank? %><%= @content.secondary_content.html_safe %><% end %>
 			</div>
+			<% end %>
+			<%
+			# if no choice is made upon creation
+			else %>
+			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" /><% end %>
+			<% if !@content.content.blank? %><%= @content.content.html_safe %><% end %>
+			<hr />
+			<% if !@content.secondary_content.blank? %><%= @content.secondary_content.html_safe %><% end %>
 			<% end %>
 		</div>
 		<%#= link_to 'Edit the Content', edit_content_path(@content), :class => 'btn' %>
@@ -110,7 +122,7 @@
 						<input id="content_image_to_main" name="content[image_to_main]" type="hidden" value="<% if @content.image_to_main == true %>1<% else %>0<% end %>" />
 					</label>
 				</fieldset>
-				<fieldset>
+				<fieldset class="t">
 					<label for="font-family">
 						<span>Header Font Family:</span>
 						<select name="font-family" id="font-family">
@@ -126,9 +138,9 @@
 					</label>
 				</fieldset>
 				<fieldset>
-					<label for="font-family">
+					<label for="font-family-body">
 						<span>Body Font Family:</span>
-						<select name="font-family" id="font-family-body">
+						<select name="font-family-body" id="font-family-body">
 							<option value="'Noto Serif', Georgia, serif">Noto / Georgia</option>
 							<option value="'Helvetica Neue', Arial, sans-serif">Helvetica</option>
 							<option value="'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif">Arial Rounded</option>
