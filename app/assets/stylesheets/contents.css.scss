@@ -839,6 +839,12 @@ layouts
 
 			}
 
+			&.i {
+				.edit {
+					width: 50%;
+				}
+			}
+
 			&.cls {
 				top: 1em;
 				left: 1em;

@@ -1,6 +1,6 @@
 <div class="body" id="body" style="<% if !@content.background_color.blank? %>background-color: <%= @content.background_color %>;<% end %><% if @content.add_font_family %>font-family: <%= @content.add_font_family %><% end %>">
 	<div class="layout <% if @content.layout_type == false %>single<% else %>double<% end %>">
-		<small>
+		<small class="i">
 			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank"><span class="icon-envelope-alt edit"></span></a>
 			<a href="<%= new_content_path %>"><span class="icon-plus edit"></span></a>
 		</small>
