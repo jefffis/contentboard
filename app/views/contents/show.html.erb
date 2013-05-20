@@ -10,8 +10,8 @@
 		<small>
 			<span class="icon-cog edit styles" data-part="global"></span>
 			<a href="<%= edit_content_path(@content) %>"><span class="icon-pencil edit"></span></a>
-			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/c/s/<%= @content.unique_string %>" target="_blank"><span class="icon-envelope-alt edit"></span></a>
-			<a href="<%= request.protocol %><%= request.host_with_port %>/c/s/<%= @content.unique_string %>"><span class="icon-share-alt edit"></span></a>
+			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank"><span class="icon-envelope-alt edit"></span></a>
+			<a href="<%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>"><span class="icon-share-alt edit"></span></a>
 			<a href="<%= new_content_path %>"><span class="icon-plus edit"></span></a>
 		</small>
 		<header style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
