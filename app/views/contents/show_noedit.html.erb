@@ -1,7 +1,7 @@
 <div class="body" id="body" style="<% if !@content.background_color.blank? %>background-color: <%= @content.background_color %>;<% end %><% if @content.add_font_family %>font-family: <%= @content.add_font_family %><% end %>">
 	<div class="layout <% if @content.layout_type == false %>single<% else %>double<% end %>">
 		<small>
-			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/contents/share/<%= @content.id %>"><span class="icon-envelope-alt edit"></span></a>
+			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %><%= @content.id %>"><span class="icon-envelope-alt edit"></span></a>
 			<a href="<%= new_content_path %>"><span class="icon-plus edit"></span></a>
 		</small>
 		<header style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
