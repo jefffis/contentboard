@@ -15,20 +15,40 @@
 				}
 			</style>
 			<% end %>
+			<% if !@content.body_font_family.blank? %>
+			<style scoped id="body_copy_inline">
+				p, li {
+					font-family: <%= @content.body_font_family.html_safe %>;
+				}
+			</style>
+			<% end %>
+			<%
+			# if choice is made upon creation
+			if !@content.layout_type.blank? %>
+
 			<% if @content.layout_type == false %>
 			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" /><% end %>
 			<% if !@content.content.blank? %><%= @content.content.html_safe %><% end %>
 			<hr />
 			<% if !@content.secondary_content.blank? %><%= @content.secondary_content.html_safe %><% end %>
 			<% else %>
-			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" class="w" /><% end %>
 			<div class="left">
 				<% if !@content.content.blank? %><%= @content.content.html_safe %><% end %>
 			</div>
 			<div class="right">
+				<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" class="w" /><% end %>
 				<% if !@content.secondary_content.blank? %><%= @content.secondary_content.html_safe %><% end %>
 			</div>
 			<% end %>
+			<%
+			# if no choice is made upon creation
+			else %>
+			<% if @content.image_to_main == true %><img src="http://placehold.it/350x150" id="image" /><% end %>
+			<% if !@content.content.blank? %><%= @content.content.html_safe %><% end %>
+			<hr />
+			<% if !@content.secondary_content.blank? %><%= @content.secondary_content.html_safe %><% end %>
+			<% end %>
 		</div>
 	</div>
+	<h5>Contentboard app &copy; 2013, built by <a href="http://jefff.co/" target="_blank">jefff</a>.</h5>
 </div>
