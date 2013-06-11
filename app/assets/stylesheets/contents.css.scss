@@ -163,9 +163,11 @@ h5 {
 	font-family: 'Archivo Narrow', sans-serif;
 	font-weight: normal;
 
-	a {
-		color: rgba(0,0,0,0.5);
-		opacity: .6;
+	a, a:visited {
+		//color: rgba(0,0,0,0.5);
+		color: #555;
+		font-weight: bold;
+		//opacity: .6;
 		position: relative;
 
 		&:hover {
