@@ -49,6 +49,7 @@ $sans: 'Helvetica Neue', Arial, sans-serif;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 html {
@@ -67,6 +68,9 @@ html {
 		color: lighten($main-color, 10%);
 		font-family: $custom-font;
 		padding: 2em 0;
+		&.hm {
+			//padding: 2em 0;
+		}
 	}
 
 }
@@ -128,7 +132,7 @@ small {
 	border-top: 1px solid rgba(0,0,0,0.1);
 	padding: 3em 1em 0;
 	max-width: 25em;
-	margin: 3em auto 0;
+	margin: 3em auto 1em;
 	font-family: 'Archivo Narrow', sans-serif !important;
 	font-size: 100% !important;
 	text-align: center;

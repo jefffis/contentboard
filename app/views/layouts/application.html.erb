@@ -1,3 +1,6 @@
+<% url = request.fullpath.split('/') %>
+<% url2 = request.fullpath.split('?') %>
+<%#= url2[0] %>
 <!DOCTYPE html>
 <html class="yep">
 <head>
@@ -9,9 +12,8 @@
 	<%= stylesheet_link_tag "application", :media => "all" %>
 	<%= csrf_meta_tags %>
 </head>
-<body class="yep">
+<body class="yep<% if url2[0] == '/' %> hm<% end %>">
 	<%= yield %>
-	<% url = request.fullpath.split('/') %>
 	<% if url[3] == 'edit' || url[2] == 'new' %>
 	<%= javascript_include_tag "application" %>
 	<%= javascript_include_tag "contents" %>

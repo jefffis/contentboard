@@ -27,7 +27,7 @@
 			</style>
 			<% end %>
 
-			<% if !@content.body_font_family.blank? %>
+			<% if @content.body_font_family %>
 			<style scoped id="body_copy_inline">
 				p, li {
 					font-family: <%= @content.body_font_family.html_safe %>;
