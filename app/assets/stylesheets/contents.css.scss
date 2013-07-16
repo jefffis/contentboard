@@ -72,9 +72,9 @@ html {
 			//padding: 2em 0;
 		}
 	}
-
-	.home {
+	&.yep.home {
 		background: lighten(#d6cbac, 20%);
+		padding: 0;
 	}
 
 }
@@ -162,11 +162,21 @@ small {
 
 	}
 
+	h4 {
+		text-align: center;
+		margin-top: 3em;
+		a {
+			color: rgba(0,0,0,0.25);
+			text-decoration: none;
+		}
+	}
+
 	.btn {
 		.home & {
 			max-width: 100%;
 			margin: 2em 0;
 			background: $main-color-highlight;
+			font-size: 120%;
 		}
 		&:active {
 			//opacity: .75;
@@ -545,7 +555,7 @@ header {
 			width: 100%;
 			text-align: center;
 			color: white;
-			font: bold 1.75em/1.05 'Inconsolata', sans-serif;
+			font: bold 1.25em/1.05 'Inconsolata', sans-serif;
 			letter-spacing: -1px;
 			padding: 0 2em;
 			z-index: 2;
@@ -566,6 +576,7 @@ header {
 		}
 		img {
 			width: 100%;
+			display: block;
 			//outline: 3px solid rgba(0,0,0,0.15);
 		}
 	}
@@ -1226,15 +1237,24 @@ layouts
 		padding: 0;
 	}
 }
-@media screen and (min-width:60em) {
-	/*.intro {
-		float: left;
-		margin-left: 3em;
-		& + .btn {
-			float: right;
-			margin: 2em 3em 2em 0;
+@media screen and (min-width:40em) {
+	header {
+		.home & {
+			small {
+				font: bold 1.75em/1.05 'Inconsolata', sans-serif;
+			}
+			.btn {
+
+			}
 		}
-	}*/
+	}
+	.intro {
+		.home & {
+			.btn {
+				font-size: 150%;
+			}
+		}
+	}
 }
 
 /**********
