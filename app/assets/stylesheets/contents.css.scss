@@ -20,7 +20,7 @@ $main-color: #777;
 $main-background: #9ce8e3;
 $main-color-highlight: #fc4d2e;
 $main-link: #fe8787;
-$custom-font: 'Noto Serif', Georgia, serif;
+$custom-font: /*'Noto Serif', Georgia, serif*/'Inconsolata', sans-serif;
 $sans: 'Helvetica Neue', Arial, sans-serif;
 
 // clearfix
@@ -133,7 +133,7 @@ small {
 	//padding: 2em 0.1;
 	max-width: 32em;
 	margin: 0 auto 2em;
-	padding: 0 2em;
+	padding: 0 2em 1em;
 	//font-family: 'Archivo Narrow', sans-serif !important;
 	//font-size: 100% !important;
 	//text-align: center;
@@ -169,7 +169,7 @@ small {
 
 h5 {
 	text-align: center;
-	font-family: 'Archivo Narrow', sans-serif;
+	font-family: 'Inconsolata', sans-serif;
 	font-weight: normal;
 
 	a, a:visited {
@@ -258,6 +258,9 @@ h5 {
 		.wrapper {
 			max-width: 70em;
 			padding: 0;
+		}
+		p {
+			font-size: 100%;
 		}
 	}
 
@@ -494,11 +497,15 @@ header {
 
 		h2 {
 			position: absolute;
-			left: 1em;
+			left: 0;
 			top: 1em;
+			text-align: center;
+			width: 100%;
 			line-height: 1;
 			margin: 0;
 			font-size: 1.35em;
+			font-weight: normal;
+			color: white;
 			a {
 				color: white;
 			}
@@ -524,8 +531,24 @@ header {
 			width: 100%;
 			text-align: center;
 			color: white;
-			font: normal 1.75em/1.2 'Archivo Narrow', sans-serif;
+			font: bold 1.75em/1.05 'Inconsolata', sans-serif;
+			letter-spacing: -1px;
 			padding: 0 2em;
+			z-index: 2;
+		}
+		.grad {
+			position: absolute;
+			bottom: 7px;
+			left: 0;
+			width: 100%;
+			height: 100px;
+			background: transparent;
+			background: -webkit-gradient(linear, 0 0, 0 bottom, from(transparent), to(rgba(0,0,0,0.75)));
+			background: -webkit-linear-gradient(transparent, rgba(0,0,0,0.75));
+			background: -moz-linear-gradient(transparent, rgba(0,0,0,0.75));
+			background: -ms-linear-gradient(transparent, rgba(0,0,0,0.75));
+			background: -o-linear-gradient(transparent, rgba(0,0,0,0.75));
+			background: linear-gradient(transparent, rgba(0,0,0,0.75));
 		}
 		img {
 			width: 100%;

@@ -4,15 +4,15 @@
 		<% if url[3] != 'edit' && url[2] != 'new' %>
 		<header role="banner">
 			<h2>
-				<a href="/">Contentboard
-				<!--<span class="icon-pencil"></span>-->
-				</a>
+				Contentboard
+				<span class="icon-file-text-alt"></span>
 			</h2>
 			<% if request.fullpath == '/' %>
-			<h3>
+			<!--<h3>
 				<a href="#">My boards</a>
-			</h3>
+			</h3>-->
 			<small>Create, edit, and share web content easily.</small>
+			<div class="grad"></div>
 			<% end %>
 		  <%= image_tag('/assets/typewriter.jpg') %>
 		</header>
