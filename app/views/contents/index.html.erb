@@ -1,13 +1,9 @@
 <%= render :partial=>"partials/header" %>
 <div class="main" role="main">
-  
-	<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, hic fugit eos dolorum et iste neque odit obcaecati maiores eaque veniam reiciendis eum dicta? Dolor aut expedita consectetur magnam eligendi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, hic fugit eos dolorum et iste neque odit obcaecati maiores eaque veniam reiciendis eum dicta? Dolor aut expedita consectetur magnam eligendi.</p>
-
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, hic fugit eos dolorum et iste neque odit obcaecati maiores eaque veniam reiciendis eum dicta? Dolor aut expedita consectetur magnam eligendi.</p>-->
-
-	<%= link_to 'New Content', new_content_path, :class => 'btn' %>
-
-	<!--<p class="intro"><strong>Contentboard is a little app that allows non-web savvy folk to [uber] simply layout some content and adjust some styling</strong>. I built this because I&rsquo;ve run into many issues where clients have handed over content, after the design phase completes, and then when they see the content on staging or live, do not like how it flows. Plus, I&rsquo;ve also found that being able to view the content in a semi-live state helps the author to massage it and iterate it to a better place. <a href="http://jefff.co" target="_blank">made by jefff</a></p>-->
+	<div class="intro">
+	<%= link_to 'Create a board now', new_content_path, :class => 'btn' %>
+	<p><strong>Contentboard is a simple Ruby on Rails app that allows users to upload content on the web, choose a layout, add basic styling and share for internal review</strong>. <!--<a href="http://jefff.co" target="_blank">made by jefff</a>--> I built this because I&rsquo;ve run into many issues where clients have handed over content, after the design phase completes, and then when they see the content on staging or live, do not like how it flows. Plus, I&rsquo;ve also found that being able to view the content in a semi-live state helps the author to massage it and iterate it to a better place.</p>
+	</div>
 
 </div>
 <%= render :partial=>"partials/footer" %>

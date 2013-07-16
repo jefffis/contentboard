@@ -1,12 +1,19 @@
 <% url = request.fullpath.split('/') %>
-<div class="table-cell">
+<div class="table-cell<% if request.fullpath == '/' %> home<% end %>">
 	<div class="wrapper<% if url[3] == 'edit' %> edit<% end %>">
 		<% if url[3] != 'edit' && url[2] != 'new' %>
 		<header role="banner">
-		  <h2>
-		  	<a href="/">Contentboard
-				<span class="icon-pencil"></span>
-		  	</a>
-		  </h2>
+			<h2>
+				<a href="/">Contentboard
+				<!--<span class="icon-pencil"></span>-->
+				</a>
+			</h2>
+			<% if request.fullpath == '/' %>
+			<h3>
+				<a href="#">My boards</a>
+			</h3>
+			<small>Create, edit, and share web content easily.</small>
+			<% end %>
+		  <%= image_tag('/assets/typewriter.jpg') %>
 		</header>
 		<% end %>
