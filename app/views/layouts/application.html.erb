@@ -2,7 +2,7 @@
 <% url2 = request.fullpath.split('?') %>
 <%#= url2[0] %>
 <!DOCTYPE html>
-<html class="yep">
+<html class="yep<% if request.fullpath == '/' %> home<% end %>">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
