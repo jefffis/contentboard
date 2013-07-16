@@ -559,6 +559,9 @@ header {
 			letter-spacing: -1px;
 			padding: 0 2em;
 			z-index: 2;
+			span {
+				color: yellow;
+			}
 		}
 		.grad {
 			position: absolute;
