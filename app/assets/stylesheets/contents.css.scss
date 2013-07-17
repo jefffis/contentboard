@@ -58,6 +58,7 @@ html {
 	//background: lighten(yellow, 40%);
 	//border:10px solid lighten($main-color, 10%);
 	color: white;
+	background: lighten(#d6cbac, 20%);
 	//background: rgba(50,255,255,0.5);
 	padding: 0;
 
@@ -73,7 +74,6 @@ html {
 		}
 	}
 	&.yep.home {
-		background: lighten(#d6cbac, 20%);
 		padding: 0;
 	}
 
@@ -513,6 +513,26 @@ h5 {
 
 header {
 
+	h2 {
+		&.sub {
+			font-size: 1.35em;
+			color: rgba(0, 0, 0, 0.75);
+			margin: 1em 0 0;
+			&:after {
+				content: "";
+				display: block;
+				width: 50px;
+				background: rgba(0, 0, 0, 0.75);
+				height: 3px;
+				margin: 1em auto;
+			}
+		}
+	}
+
+	.boards.home & {
+		max-height: 10em;
+	}
+
 	.home & {
 		position: relative;
 		text-shadow: 0 1px 0 rgba(0,0,0,0.15), 0 2px 1px rgba(0,0,0,0.1);
@@ -533,6 +553,10 @@ header {
 			a {
 				color: white;
 			}
+			&.author {
+				text-align: left;
+				left: 1em;
+			}
 		}
 		h3 {
 			position: absolute;
@@ -540,12 +564,23 @@ header {
 			top: 1em;
 			line-height: 1;
 			margin: 0;
-			font-size: 1.35em;
+			font-size: 1em;
+			font-weight: normal;
 			//display: none;
 			a {
 				color: white;
-				opacity: .7;
+				//opacity: .7;
 				text-decoration: none;
+				display: inline-block;
+				background: rgba(0,0,0,0.5);
+				padding: .25em .75em;
+				&:active {
+					color: rgba(255,255,255,0.65);
+				}
+			}
+			span {
+				position: relative;
+				top: 2px;
 			}
 		}
 		small {
@@ -611,10 +646,43 @@ header {
 	}
 }
 
+// my boards list
+ol {
+	max-width: 30em;
+	margin: 2em auto;
+	li {
+		font: bold 150%/1.5 'Inconsolata', sans-serif;
+		letter-spacing: -1px;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+		padding-bottom: 1em;
+		margin-bottom: 1em;
+		list-style-position: inside;
+		&:last-child {
+			padding: 0;
+			margin: 0;
+			border: 0;
+		}
+	}
+	a:link, a:visited {
+		text-decoration: none;
+		color: rgba(0,0,0,0.75);
+		padding: .25em .5em;
+	}
+	a:visited {
+		color: rgba(0,0,0,0.5);
+	}
+	a:hover {
+		background: rgba(0,0,0,0.1);
+	}
+	a:active {
+		opacity: .65;
+	}
+}
+
 // form
 form {
 
-	padding-top: 2em;
+	//padding-top: 2em;
 
 	fieldset {
 		border: 0;
@@ -627,6 +695,7 @@ form {
 
 		label {
 			cursor: pointer;
+			letter-spacing: -1px;
 
 			&:active {
 				opacity: .75;

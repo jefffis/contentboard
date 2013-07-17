@@ -37,6 +37,12 @@ class ContentsController < ApplicationController
     end
   end
 
+  def list
+
+    @contents = Content.order('id DESC').all.shuffle
+
+  end
+
   # GET /contents/new
   # GET /contents/new.json
   def new

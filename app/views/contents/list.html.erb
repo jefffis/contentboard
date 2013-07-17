@@ -1,0 +1,13 @@
+<% author = cookies['content-author'] %>
+<%= render :partial=>"partials/header" %>
+<% if author %>
+<ol class="my-boards">
+<% @contents.each do |c| %>
+	<% if cookies[c.unique_string+'-author'] %>
+	<li><%= link_to(c) do %><%= c.name %><% end %></li>
+	<% end %>
+<% end %>
+</ol>
+<%= link_to 'Create a board <span class="icon-bolt"></span>'.html_safe, new_content_path, :class => 'btn' %>
+<% end %>
+<%= render :partial=>"partials/footer" %>

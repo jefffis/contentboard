@@ -1,6 +1,7 @@
-<% url = request.fullpath.split('/') %>
-<% url2 = request.fullpath.split('?') %>
-<%#= url2[0] %>
+<% url = request.fullpath.split('/')
+url2 = request.fullpath.split('?')
+%>
+<%#= url[1] %>
 <!DOCTYPE html>
 <html class="yep<% if request.fullpath == '/' %> home<% end %>">
 <head>
@@ -38,6 +39,12 @@
 	</script>
 	<% else %>
 	<%= javascript_include_tag "contents" %>
+	<% end %>
+	<% if notice %>
+	<script>
+	SetCookie('<%= @content.unique_string %>-author','yes');
+	SetCookie('content-author','yes');
+	</script>
 	<% end %>
 </body>
 </html>

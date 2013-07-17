@@ -1,5 +1,10 @@
 //= require jquery
 
+function SetCookie(cookieName,cookieValue) {
+	document.cookie = cookieName+"="+escape(cookieValue)
+	+ ";expires=Sun, 17 Jan 2038 19:14:07 GMT; path=/";
+}
+
 $(function(){
 	//var $radios = $('input[type=radio]');
 	var $radio_labels = $('label.i');
