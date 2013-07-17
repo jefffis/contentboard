@@ -68,7 +68,7 @@ html {
 		width: 100%;
 		color: lighten($main-color, 10%);
 		font-family: $custom-font;
-		padding: 2em 0;
+		//padding: 2em 0;
 		&.hm {
 			//padding: 2em 0;
 		}
@@ -1155,13 +1155,14 @@ layouts
 			display: table-cell;
 			vertical-align: middle;
 			margin: 0;
+			padding: 30px;
 			//font-family: $sans;
 			font-weight: bold;
 		}
 
 		@media screen and (max-width:50em) {
 			h2 {
-				padding: 0 1em;
+				font-size: 1.5em;
 			}
 		}
 

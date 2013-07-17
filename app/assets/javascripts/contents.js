@@ -8,7 +8,7 @@ function SetCookie(cookieName,cookieValue) {
 $(function(){
 	//var $radios = $('input[type=radio]');
 	var $radio_labels = $('label.i');
-	var $layout_type = $('#content_layout_type');
+	var $layout_type = $('#layout-type');
 	var $edit = $('.edit.styles');
 	var $modal = $('#modal');
 
@@ -134,16 +134,15 @@ $(function(){
 	$mainimg.on('click',function(){
 		var $this = $(this);
 		var $this_prop = $this.prop('checked');
+		var $this_layout_type = $layout_type.data('layout');
 		//alert($this.prop('checked'));
 		if($this_prop == true){
-			if($layout_type.text()=='single'){
-				$main.prepend('<img src="http://placehold.it/350x150" id="image" />');
-			}else{
-				$main.find('div.right').prepend('<img src="http://placehold.it/350x150" id="image" />');
-			}
+			$main.prepend('<img src="http://placehold.it/350x150" id="image" />');
+			$main.find('div.right').prepend('<img src="http://placehold.it/350x150" id="image2" />');
 			$mainimg_field.val(1);
 		}else{
 			$main.find('#image').remove();
+			$main.find('#image2').remove();
 			$mainimg_field.val(0);
 		}
 		//$.post($global_form_url, $global_form.serialize());
