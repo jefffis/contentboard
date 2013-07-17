@@ -292,7 +292,7 @@ h5 {
 		margin: 0 auto;
 
 		&.edit {
-			padding: 3em 2em 1em;
+			padding: 0 2em 1em;
 		}
 
 	}
@@ -650,6 +650,7 @@ header {
 ol {
 	max-width: 30em;
 	margin: 2em auto;
+	padding: 0 1.5em;
 	li {
 		font: bold 150%/1.5 'Inconsolata', sans-serif;
 		letter-spacing: -1px;
@@ -676,6 +677,14 @@ ol {
 	}
 	a:active {
 		opacity: .65;
+	}
+}
+.outro {
+	text-align: center;
+	margin-top: 3em;
+	a {
+		color: rgba(0,0,0,0.25);
+		text-decoration: none;
 	}
 }
 
@@ -1308,6 +1317,14 @@ layouts
 @media screen and (min-height:30em) {
 	html.yep {
 		padding: 0;
+	}
+}
+@media screen and (max-height:50em) {
+	.home {
+		header {
+			max-height: 30em;
+			overflow: hidden;
+		}
 	}
 }
 @media screen and (min-width:40em) {
