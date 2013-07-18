@@ -34,6 +34,9 @@ $(function(){
 	var $page_title = $('title');
 	//var $layout_type = $('#layout-type');
 
+	//var $content_layout_type_fieldset = $('#content_layout_type_fieldset').find('input[type=radio]');
+	var $content_layout_type = $('#content_layout_type');
+
 	var $close = $('#close');
 	var $remove = $('#remove');
 	var $save = $('#save');
@@ -45,7 +48,7 @@ $(function(){
 		var $this_radio = $this.find('input[type=radio]');
 		$radio_labels.removeClass('checked');
 		$this.addClass('checked');
-		$layout_type.val($this_radio.val());
+		$content_layout_type.val($this_radio.val());
 	});
 
 	$edit.on('click',function(){

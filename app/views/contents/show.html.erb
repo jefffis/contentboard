@@ -18,14 +18,6 @@
 			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
 		</header>
 		<div class="main cf" id="main" style="<% if !@content.main_background_color.blank? %>background-color: <%= @content.main_background_color %>;<% end %><% if !@content.font_color.blank? %>color: <%= @content.font_color %>;<% end %>">
-			
-			<% if !@content.link_color.blank? %>
-			<style scoped>
-				a {
-					color: <%= @content.link_color %>;
-				}
-			</style>
-			<% end %>
 
 			<% if @content.body_font_family %>
 			<style scoped id="body_copy_inline">
@@ -63,6 +55,19 @@
 			<% end %>
 		</div>
 		<%#= link_to 'Edit the Content', edit_content_path(@content), :class => 'btn' %>
+		<% if !@content.link_color.blank? %>
+		<!--<style scoped>
+			a {
+				color: <%= @content.link_color %>;
+			}
+		</style>-->
+		<script>
+			var _a = document.getElementById("main").getElementsByTagName("a");
+			for(var _i=0;_i<_a.length;_i++){
+				_a[_i].style.color = '<%= @content.link_color %>';
+			}
+		</script>
+		<% end %>
 	</div>
 	<h5><a href="/">Contentboard</a> app &copy; 2013, built by <a href="http://jefff.co/" target="_blank">jefff</a>.</h5>
 </div>
