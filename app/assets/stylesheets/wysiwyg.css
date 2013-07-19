@@ -1,0 +1,10 @@
+body.mce-content-body {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
+	padding: 15px;
+}
+.mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6, .mce-content-body ul, .mce-content-body ol, .mce-content-body p {
+	margin-top: 0;
+}
