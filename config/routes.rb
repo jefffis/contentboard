@@ -2,7 +2,7 @@ Contentboardd::Application.routes.draw do
 
   match '/my-boards', :controller => 'contents', :action => 'list'
 
-  resources :contents
+  resources :contents, :path => 'c'
 
   root :to => "contents#index"
 
