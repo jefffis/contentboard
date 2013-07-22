@@ -1,4 +1,4 @@
-<%#= @content.unique_string %>
+<% author = cookies['content-author'] %>
 
 <div class="body" id="body" style="<% if !@content.background_color.blank? %>background-color: <%= @content.background_color %>;<% end %><% if @content.add_font_family %>font-family: <%= @content.add_font_family %><% end %>">
 
@@ -10,9 +10,14 @@
 		<small>
 			<span class="icon-cog edit styles" data-part="global"><span data-title="Edit global styles"></span></span>
 			<a href="<%= edit_content_path(@content) %>"><span class="icon-pencil edit"><span data-title="Edit content / layout"></span></span></a>
+			<% if !author %>
 			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank"><span class="icon-envelope-alt edit"><span data-title="Share via email"></span></span></a>
+			<% end %>
 			<a href="<%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>"><span class="icon-share-alt edit"><span data-title="Get sharable link"></span></span></a>
 			<a href="<%= new_content_path %>"><span class="icon-plus edit"><span data-title="Create new"></span></span></a>
+			<% if author %>
+			<a href="/my-boards"><span class="icon-list edit"><span data-title="My boards"></span></span></a>
+			<% end %>
 		</small>
 		<header style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
 			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>

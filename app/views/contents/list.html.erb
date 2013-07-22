@@ -8,9 +8,12 @@
 	<% end %>
 <% end %>
 </ol>
-<% else %>
-<h1 class="center">Whoops, looks like <span>you haven&rsquo;t created any boards</span> yet.</h1>
-<% end %>
 <%= link_to 'Create a board <span class="icon-bolt"></span>'.html_safe, new_content_path, :class => 'btn' %>
+<% else %>
+<div class="intro">
+<h1 class="center">Whoops, looks like <span>you haven&rsquo;t created any boards</span> yet.</h1>
+<%= link_to 'Create a board <span class="icon-bolt"></span>'.html_safe, new_content_path, :class => 'btn' %>
+</div>
+<% end %>
 <h4 class="outro"><a href="http://jefff.co" target="_blank">made with <span class="icon-heart"></span> by jefff</a></h4>
 <%= render :partial=>"partials/footer" %>

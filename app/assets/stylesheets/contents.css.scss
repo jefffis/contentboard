@@ -193,6 +193,10 @@ h5 {
 	text-align: center;
 	font-family: 'Inconsolata', sans-serif;
 	font-weight: normal;
+	//margin-bottom: 8em;
+	@media screen and (max-width:70em){
+		margin-bottom: 8em;
+	}
 
 	a, a:visited {
 		//color: rgba(0,0,0,0.5);
@@ -252,16 +256,14 @@ h5 {
 		font-size: 80%;
 	}
 
-	&:hover {
-		background: $main-color-highlight;
-	}
+	//&:hover {
+	//	background: $main-color-highlight;
+	//}
 
 	&:active {
-		//opacity: .75;
-		box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset;
-		//padding: .8em 2em;
 		color: rgba(255,255,255,0.75);
 		background: darken($main-color-highlight, 15%);
+		box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset;
 	}
 
 }
@@ -548,7 +550,7 @@ header {
 			line-height: 1;
 			margin: 0;
 			font-size: 1.35em;
-			font-weight: normal;
+			//font-weight: normal;
 			color: white;
 			a {
 				color: white;
@@ -556,6 +558,15 @@ header {
 			&.author {
 				text-align: left;
 				left: 1em;
+			}
+			span {
+				background: white;
+				padding: .15em .35em;
+				position: relative;
+				left: 7px;
+				text-shadow: none;
+				color: rgba(0,0,0,0.5);
+				border-radius: 2px;
 			}
 		}
 		h3 {
@@ -680,7 +691,7 @@ ol {
 	}
 }
 h1.center {
-	padding: 1.5em 1.5em 0;
+	padding: 1.5em 0 0;
 	line-height: 1.2;
 	text-align: center;
 	span {
@@ -690,10 +701,14 @@ h1.center {
 .outro {
 	text-align: center;
 	margin-top: 3em;
+	margin-bottom: 3em;
 	a {
 		color: rgba(0,0,0,0.25);
 		text-decoration: none;
 	}
+}
+.intro + .outro {
+	margin-top: -2em;
 }
 
 // form
@@ -1358,6 +1373,9 @@ layouts
 				font-size: 150%;
 			}
 		}
+	}
+	.outro {
+		margin-bottom: 0;
 	}
 }
 
