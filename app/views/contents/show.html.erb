@@ -4,7 +4,7 @@
 
 	<p id="notice" class="notice"><%= notice %></p>
 
-	<div id="layout-type" style="display:none"><% if @content.layout_type == false %>single<% else %>double<% end %></div>
+	<div id="layout-type" data-layout="<% if @content.layout_type == false %>single<% else %>double<% end %>" style="display:none"><% if @content.layout_type == false %>single<% else %>double<% end %></div>
 
 	<div class="layout <% if !@content.layout_type.blank? %><% if @content.layout_type == false %>single<% else %>double<% end %><% else %>single<% end %>">
 		<small>

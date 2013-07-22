@@ -9,6 +9,7 @@ $(function(){
 	//var $radios = $('input[type=radio]');
 	var $radio_labels = $('label.i');
 	var $layout_type = $('#layout-type');
+	var $layout_type_data = $layout_type.data('layout');
 	var $edit = $('.edit.styles');
 	var $modal = $('#modal');
 
@@ -139,9 +140,13 @@ $(function(){
 		var $this_prop = $this.prop('checked');
 		var $this_layout_type = $layout_type.data('layout');
 		//alert($this.prop('checked'));
+		//alert($layout_type_data);
 		if($this_prop == true){
-			$main.prepend('<img src="http://placehold.it/350x150" id="image" />');
-			$main.find('div.right').prepend('<img src="http://placehold.it/350x150" id="image2" />');
+			if($layout_type_data=='single'){
+				$main.prepend('<img src="http://placehold.it/350x150" id="image" />');
+			}else{
+				$main.find('div.right').prepend('<img src="http://placehold.it/350x150" id="image2" />');
+			}
 			$mainimg_field.val(1);
 		}else{
 			$main.find('#image').remove();
