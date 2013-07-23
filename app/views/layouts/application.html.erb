@@ -22,6 +22,9 @@ url2 = request.fullpath.split('?')
 	ga('send', 'pageview');
 
 	</script>
+	<!--[if lt IE 9]>
+		<script src="/javascripts/html5shiv.js"></script>
+	<![endif]-->
 </head>
 <body class="yep<% if url2[0] == '/' %> hm<% end %>">
 	<%= yield %>
