@@ -32,6 +32,14 @@
 			</style>
 			<% end %>
 
+			<%# if !@content.background_color.blank? %>
+			<!--<style>
+				html, body {
+					background-color: <%= @content.background_color %>;
+				}
+			</style>-->
+			<%# end %>
+
 			<%
 			# if choice is made upon creation
 			if !@content.layout_type.blank? %>

@@ -66,8 +66,9 @@ $(function(){
 		var $this_val = $this.val();
 		
 		$body.css('background-color',$this_val);
+		$('html, body').css('background-color',$this_val);
 
-		var $name = 'background_color';
+		//var $name = 'background_color';
 		//$this.serialize();
 		//$.post($global_form_url, { $name: $this_val });
 
