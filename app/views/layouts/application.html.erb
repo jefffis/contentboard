@@ -3,7 +3,7 @@ url2 = request.fullpath.split('?')
 %>
 <%#= url[1] %>
 <!DOCTYPE html>
-<html class="yep<% if request.fullpath == '/' %> home<% end %>">
+<html class="yep<% if request.fullpath == '/' %> home<% end %>"<% if @content %><% if !@content.background_color.blank? %> style="background-color: <%= @content.background_color %>;"<% end %><% end %>>
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
@@ -26,7 +26,7 @@ url2 = request.fullpath.split('?')
 		<script src="/javascripts/html5shiv.js"></script>
 	<![endif]-->
 </head>
-<body class="yep<% if url2[0] == '/' %> hm<% end %>">
+<body class="yep<% if url2[0] == '/' %> hm<% end %>"<% if @content %><% if !@content.background_color.blank? %> style="background-color: <%= @content.background_color %>;"<% end %><% end %>>
 	<%= yield %>
 	<% if url[3] == 'edit' || url[2] == 'new' %>
 	<%= javascript_include_tag "application" %>
