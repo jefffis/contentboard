@@ -80,7 +80,7 @@
 	<div class="table-cell">
 		<div class="options global" id="global">
 			<h2>Edit Global Options</h2>
-			<p>Use any valid CSS syntax: rgba, hsla, hex, or name; <em><strong>changes are saved on close.</strong></em></p>
+			<p>Use any CSS syntax you like: rgba, hsla, hex, or name (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color" target="_blank">more details</a>); <em><strong>changes are saved on close (with the <span class="icon-remove"></span> button).</strong></em></p>
 			<%= form_for(@content) do |f| %>
 				<fieldset>
 					<label for="content_title">
@@ -126,7 +126,7 @@
 						<input id="content_link_color" name="content[link_color]" value="<%= @content.link_color %>" type="text" />
 					</label>
 				</fieldset>
-				<fieldset>
+				<fieldset class="less">
 					<label for="image_to_main" class="c">
 						<span>Add image to main content?</span>
 						<input id="image_to_main" name="image_to_main" value="1" type="checkbox" <% if @content.image_to_main == true %>checked<% end %> />

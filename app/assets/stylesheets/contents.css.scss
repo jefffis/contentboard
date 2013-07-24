@@ -323,14 +323,14 @@ h5 {
 	.options {
 		display: none;
 		max-width: 40em;
-		margin: 0;
+		margin: 0 auto;
 		padding: 2em 2em 1em;
 		background: white;
 		color: rgba(0,0,0,0.75);
 		box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 		border: 3px solid rgba(0,0,0,0.2);
 		position: relative;
-		left: -3px;
+		//left: -3px;
 
 		h2 {
 			margin-bottom: 0;
@@ -348,8 +348,8 @@ h5 {
 		.close {
 			display: block;
 			position: absolute;
-			top: -.1em;
-			right: -.1em;
+			top: 0;
+			right: 0;
 			line-height: 1;
 			cursor: pointer;
 			color: white;
@@ -445,8 +445,9 @@ h5 {
 			width: 20px;
 			margin: 0;
 			position: relative;
-			top: 4px;
-			left: 5px;
+			top: 0;
+			left: 0;
+			float: right;
 
 			&:checked {
 
@@ -726,6 +727,9 @@ form {
 		border: 0;
 		padding: 0;
 		margin: 0 0 2em;
+		&.less {
+			margin-top: -10px;
+		}
 
 		&.m {
 			margin-bottom: 1em;
