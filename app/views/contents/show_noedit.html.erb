@@ -49,6 +49,19 @@
 			<% if !@content.secondary_content.blank? %><%= @content.secondary_content.html_safe %><% end %>
 			<% end %>
 		</div>
+		<% if !@content.link_color.blank? %>
+		<!--<style scoped>
+			a {
+				color: <%= @content.link_color %>;
+			}
+		</style>-->
+		<script>
+			var _a = document.getElementById("main").getElementsByTagName("a");
+			for(var _i=0;_i<_a.length;_i++){
+				_a[_i].style.color = '<%= @content.link_color %>';
+			}
+		</script>
+		<% end %>
 	</div>
 	<h5><a href="/">Contentboard</a> app &copy; 2013, built by <a href="http://jefff.co/" target="_blank">jefff</a>.</h5>
 </div>
