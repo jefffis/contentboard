@@ -10,6 +10,8 @@ gem 'mysql2'
 gem 'tiny_mce'
 
 gem 'therubyracer'
+## add honey pot for signups
+gem 'honeypot-captcha'
 
 
 # Gems used only for assets and not required
