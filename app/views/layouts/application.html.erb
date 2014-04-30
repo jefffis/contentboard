@@ -35,11 +35,11 @@ url2 = request.fullpath.split('?')
 	<%= yield %>
 	<% if url[3] == 'edit' || url[2] == 'new' %>
 	<%= javascript_include_tag "contents" %>
-	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+	<%= javascript_include_tag "tinymce.min" %>
 	<script type="text/javascript">
 		tinymce.init(
 			{
-				selector:'textarea.rte-zone',
+				selector:'textarea',
 				height : 300,
 				plugins: ['link code'],
 				toolbar: 'undo redo | styleselect | bold italic | link | bullist numlist | hr | blockquote | code',
