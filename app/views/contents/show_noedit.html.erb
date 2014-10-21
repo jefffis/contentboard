@@ -1,10 +1,10 @@
 <div class="body" id="body" style="<% if !@content.background_color.blank? %>background-color: <%= @content.background_color %>;<% end %><% if @content.add_font_family %>font-family: <%= @content.add_font_family %><% end %>">
-	<div class="layout <% if @content.layout_type == false %>single<% else %>double<% end %>">
+	<div class="layout edit <% if @content.layout_type == false %>single<% else %>double<% end %>">
 		<small class="i">
 			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank"><span class="icon-envelope-alt edit"><span data-title="Share via email"></span></span></a>
 			<a href="<%= new_content_path %>"><span class="icon-plus edit"><span data-title="Create new"></span></span></a>
 		</small>
-		<header style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
+		<header class="content-header" style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
 			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
 		</header>
 		<div class="main cf" id="main" style="<% if !@content.main_background_color.blank? %>background-color: <%= @content.main_background_color %>;<% end %><% if !@content.font_color.blank? %>color: <%= @content.font_color %>;<% end %>">

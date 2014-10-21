@@ -7,19 +7,19 @@
 	<div id="layout-type" data-layout="<% if @content.layout_type == false %>single<% else %>double<% end %>" style="display:none"><% if @content.layout_type == false %>single<% else %>double<% end %></div>
 
 	<div class="layout <% if !@content.layout_type.blank? %><% if @content.layout_type == false %>single<% else %>double<% end %><% else %>single<% end %>">
-		<small>
-			<span class="icon-cog edit styles" data-part="global"><span data-title="Edit styles"></span></span>
-			<a href="<%= edit_content_path(@content) %>"><span class="icon-pencil edit"><span data-title="Edit content"></span></span></a>
+		<small class="editable">
+			<a class="icon-cog edit styles" data-part="global">Edit styles</a>
+			<a href="<%= edit_content_path(@content) %>">Edit content</a>
 			<% if !author %>
-			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank"><span class="icon-envelope-alt edit"><span data-title="Share via email"></span></span></a>
+			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank">Share via email</a>
 			<% end %>
-			<a href="<%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>"><span class="icon-share-alt edit"><span data-title="Share link"></span></span></a>
-			<a href="<%= new_content_path %>"><span class="icon-plus edit"><span data-title="Create new"></span></span></a>
+			<a href="<%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>">Share link</a>
+			<a href="<%= new_content_path %>">Add new board</a>
 			<% if author %>
-			<a href="/my-boards"><span class="icon-list edit"><span data-title="My boards"></span></span></a>
+			<a href="/my-boards">My boards</a>
 			<% end %>
 		</small>
-		<header style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
+		<header class="content-header" style="<% if !@content.header_background_color.blank? %>background: <%= @content.header_background_color %><% end %>">
 			<h2 style="<% if !@content.header_font_color.blank? %>color: <%= @content.header_font_color %><% end %>"><%= @content.name %></h2>
 		</header>
 		<div class="main cf" id="main" style="<% if !@content.main_background_color.blank? %>background-color: <%= @content.main_background_color %>;<% end %><% if !@content.font_color.blank? %>color: <%= @content.font_color %>;<% end %>">
@@ -74,7 +74,7 @@
 		</script>
 		<% end %>
 	</div>
-	<h5><a href="/">Contentboard</a> app &copy; 2013, built by <a href="http://jefff.co/" target="_blank">jefff</a>, <a href="mailto:iam@jefff.co">got questions?</a></h5>
+	<h5><a href="/">Contentboard</a> app &copy; 2013, built by <a href="http://jefff.co/" target="_blank">jefff</a>, <a href="mailto:the.jeffdoan@gmail.com">got questions?</a></h5>
 </div>
 <div class="table inner nope" id="modal">
 	<div class="table-cell">
@@ -164,7 +164,7 @@
 					</label>
 				</fieldset>
 			<% end %>
-			<span class="icon-remove close" id="close"></span>
+			<span class="icon-remove close" id="close">Close this</span>
 		</div>
 	</div>
 </div>

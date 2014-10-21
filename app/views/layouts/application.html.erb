@@ -12,7 +12,7 @@ url2 = request.fullpath.split('?')
 		<% if !@content.title %>Create a new contentboard<% end %>
 		<%= @content.title %>
 		<% else %>Contentboard | Mock up your content like it&rsquo;s going to be, without the hassle.<% end %></title>
-	<link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+
 	<%= stylesheet_link_tag "application", :media => "all" %>
 	<%= csrf_meta_tags %>
 	<script>
@@ -30,6 +30,10 @@ url2 = request.fullpath.split('?')
 	<!--[if lt IE 9]>
 		<script src="/javascripts/html5shiv.js"></script>
 	<![endif]-->
+
+	<link rel="apple-touch-icon-precomposed" href="/assets/icon.png" />
+	<link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
+
 </head>
 <body class="yep<% if url2[0] == '/' %> hm<% end %>"<% if @content %><% if !@content.background_color.blank? %> style="background-color: <%= @content.background_color %>;"<% end %><% end %>>
 	<%= yield %>

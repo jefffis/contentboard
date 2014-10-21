@@ -1,9 +1,13 @@
 <%= render :partial=>"partials/header" %>
+<!--<div home>
+	<%= image_tag('/assets/logo.png') %>
+	<h2>Contentboard</h2>
+</div>-->
 <div class="main" role="main">
 	<div class="intro">
-	<%= link_to 'Create a board <span class="icon-bolt"></span>'.html_safe, new_content_path, :class => 'btn' %>
-	<p>Contentboard is a simple <!--Ruby on Rails--> app that allows users to <strong>upload content on the web, choose a layout, add basic styling and share for internal review</strong>.</p>
-	<p><!--<a href="http://jefff.co" target="_blank">made by jefff</a>--> Built because there are many times where clients have handed over content, after the design phase completes, and then when they see the content on staging or live, do not like how it flows. Plus, being able to <strong>view the content in a semi-live state</strong> helps the author to massage it and iterate it to a better place.</p>
+	<%= link_to 'Create a board', new_content_path, :class => 'btn' %>
+	<p>Contentboard is a simple app that allows users to <strong>upload content on the web, choose a layout, add basic styling and share for internal review</strong>.</p>
+	<p>Built because there are many times where clients have handed over content, after the design phase completes, and then when they see the content on staging or live, do not like how it flows. Plus, being able to <strong>view the content in a semi-live state</strong> helps the author to massage it and iterate it to a better place.</p>
 	<h4><a href="http://jefff.co" target="_blank">made with <span class="icon-heart"></span> by jefff</a></h4>
 	</div>
 </div>

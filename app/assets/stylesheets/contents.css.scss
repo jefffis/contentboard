@@ -20,8 +20,9 @@ $main-color: #777;
 $main-background: #9ce8e3;
 $main-color-highlight: #fc4d2e;
 $main-link: #fe8787;
-$custom-font: /*'Noto Serif', Georgia, serif*/'Inconsolata', sans-serif;
-$sans: 'Helvetica Neue', Arial, sans-serif;
+$custom-font: sans-serif;
+//$sans: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+$sans: sans-serif;
 
 // clearfix
 .cf:before,.cf:after{content:" ";display:table}.cf:after{clear:both}.cf{*zoom:1}
@@ -112,7 +113,7 @@ body {
 
 h1, h2, h3, h4 {
 	margin-bottom: 1em;
-	letter-spacing: -1px;
+	//letter-spacing: -1px;
 }
 p {
 	margin-bottom: 1.3em;
@@ -220,21 +221,21 @@ h5 {
 // button links
 .btn, .btn:visited, [type=submit] {
 	//background: $main-link;
-	letter-spacing: -1px;
+	//letter-spacing: -1px;
 	font: bold 150%/1 $custom-font;
-	background: lighten($main-color, 25%);
+	background: $main-color-highlight;
 	color: white;
 	text-decoration: none;
 	display: block;
-	padding: .75em 2em .85em;
+	padding: .75em 2em;
 	line-height: 1;
 	//margin: 0 2em;
 	text-align: center;
 	max-width: 15em;
 	margin: 0 auto;
-	border-radius: 3px;
-	border:2px solid rgba(0,0,0,0.2);
-	box-shadow: 0 -3px 0 rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.1) inset, 0 1px 3px rgba(0,0,0,0.1), 0 1px 10px rgba(0,0,0,0.07);
+	border-radius: 5px;
+	border: 3px solid rgba(0,0,0,0.2);
+	//box-shadow: 0 -3px 0 rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.1) inset, 0 1px 3px rgba(0,0,0,0.1), 0 1px 10px rgba(0,0,0,0.07);
 
 	@include text-shadow;
 	//@include transition(all, .2s, ease-in-out);
@@ -261,7 +262,7 @@ h5 {
 	//}
 
 	&:active {
-		color: rgba(255,255,255,0.75);
+		//color: rgba(255,255,255,0.75);
 		background: darken($main-color-highlight, 15%);
 		box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset;
 	}
@@ -270,6 +271,12 @@ h5 {
 
 [type=submit] {
 	font-size: 100%;
+
+	&:focus {
+		background: $main-color-highlight;
+		box-shadow: none;
+	}
+
 }
 
 .table-cell {
@@ -306,6 +313,10 @@ h5 {
 
 }
 
+[type=text] {
+	border-radius: 4px;
+}
+
 .table {
 	position: absolute;
 	z-index: 3;
@@ -324,16 +335,22 @@ h5 {
 		display: none;
 		max-width: 40em;
 		margin: 0 auto;
-		padding: 2em 2em 1em;
+		padding: 1.25em;
 		background: white;
 		color: rgba(0,0,0,0.75);
 		box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-		border: 3px solid rgba(0,0,0,0.2);
+		border: 1px solid rgba(0,0,0,0.2);
+		border-radius: 4px;
 		position: relative;
 		//left: -3px;
 
 		h2 {
+			line-height: 1;
 			margin-bottom: 0;
+			opacity: .7;
+		}
+
+		label {
 			opacity: .7;
 		}
 
@@ -346,17 +363,18 @@ h5 {
 		}
 
 		.close {
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 0;
+			display: inline-block;
+			//position: absolute;
+			//top: 0;
+			//right: 0;
 			line-height: 1;
 			cursor: pointer;
 			color: white;
-			font-size: 200%;
-			background: #ccc;
+			//font-size: 200%;
+			background: lighten($main-color-highlight, 10%);
+			border-radius: 3px;
 			padding: .5em .6em;
-			@include text-shadow;
+			//@include text-shadow;
 
 			&:hover {
 				//opacity: .75;
@@ -415,8 +433,7 @@ h5 {
 			height: 1px;
 
 			&:before {
-				content: "\f040";
-				font-family: 'FontAwesome';
+				content: "";
 				background: rgba(0,0,0,0.1);
 				padding: .25em .35em;
 				position: relative;
@@ -429,9 +446,11 @@ h5 {
 		[type=text] {
 			display: inline-block;
 			width: auto;
-			margin:-.9em 0 .5em 0;
+			margin: 0;
 			font-size: 80%;
 			padding: .8em;
+			position: relative;
+			top: -.9em;
 			float: right;
 		}
 
@@ -449,13 +468,16 @@ h5 {
 			left: 0;
 			float: right;
 
+			&:focus {
+				box-shadow: none;
+			}
+
 			&:checked {
 
 				background: $main-color-highlight;
 
 				&:before {
-					content: "\f00c";
-					font-family: 'FontAwesome';
+					content: "";
 					position: relative;
 					top: -6px;
 					left: 2px;
@@ -525,11 +547,24 @@ header {
 				content: "";
 				display: block;
 				width: 50px;
-				background: rgba(0, 0, 0, 0.75);
+				background: rgba(0, 0, 0, 0.125);
 				height: 3px;
 				margin: 1em auto;
 			}
 		}
+		font-weight: normal;
+		text-align: center;
+
+		img {
+			display: block;
+			max-width: 40px;
+			margin: 0 auto .5em;
+		}
+
+	}
+
+	.hero {
+		width: 100%;
 	}
 
 	.boards.home & {
@@ -557,8 +592,15 @@ header {
 				color: white;
 			}
 			&.author {
-				text-align: left;
-				left: 1em;
+				//text-align: left;
+				//left: 1em;
+
+				img {
+					display: block;
+					max-width: 40px;
+					margin: 0 auto .5em;
+				}
+
 			}
 			span {
 				background: white;
@@ -602,8 +644,8 @@ header {
 			width: 100%;
 			text-align: center;
 			color: white;
-			font: bold 1.25em/1.05 'Inconsolata', sans-serif;
-			letter-spacing: -1px;
+			//font: bold 1.25em/1.05 'Inconsolata', sans-serif;
+			//letter-spacing: -1px;
 			padding: 0 2em;
 			z-index: 2;
 			span {
@@ -625,8 +667,7 @@ header {
 			background: linear-gradient(transparent, rgba(0,0,0,0.75));
 		}
 		img {
-			width: 100%;
-			display: block;
+			//width: 100%;
 			//outline: 3px solid rgba(0,0,0,0.15);
 		}
 	}
@@ -635,7 +676,7 @@ header {
 		text-align: center;
 		//text-transform: uppercase;
 		font-size: 2em;
-		letter-spacing: -1px;
+		//letter-spacing: -1px;
 		margin: 0 0 .5em;
 
 		span {
@@ -658,14 +699,37 @@ header {
 	}
 }
 
+[home] {
+
+	background: $main-color-highlight;
+	padding: 4.5em 0;
+	text-align: center;
+	height: 100%;
+
+	img {
+
+		max-width: 45px;
+
+	}
+
+	h2 {
+
+		color: white;
+		font-weight: normal;
+		margin-top: 0;
+
+	}
+
+}
+
 // my boards list
 ol {
 	max-width: 30em;
 	margin: 2em auto;
 	padding: 0 1.5em;
 	li {
-		font: bold 150%/1.5 'Inconsolata', sans-serif;
-		letter-spacing: -1px;
+		//font: bold 150%/1.5 'Inconsolata', sans-serif;
+		//letter-spacing: -1px;
 		border-bottom: 1px solid rgba(0,0,0,0.1);
 		padding-bottom: 1em;
 		margin-bottom: 1em;
@@ -720,7 +784,7 @@ form {
 	small {
 		//display: block;
 		//text-align: center;
-		letter-spacing: -1px;
+		//letter-spacing: -1px;
 	}
 
 	fieldset {
@@ -737,7 +801,7 @@ form {
 
 		label {
 			cursor: pointer;
-			letter-spacing: -1px;
+			//letter-spacing: -1px;
 
 			&:active {
 				opacity: .75;
@@ -861,6 +925,7 @@ form {
 			margin: 0 0 1em;
 			//outline: 3px solid rgba(0,0,0,0.1);
 			font: normal 100%/1.5 $sans;
+			line-height: 1;
 			outline: none;
 			//border: 3px solid rgba(0,0,0,0.1);
 			border: 0;
@@ -871,12 +936,22 @@ form {
 			-webkit-border-radius: 0;
 
 			&:focus {
-				outline: 3px solid $main-color-highlight;
+				//outline: 3px solid $main-color-highlight;
 				//border: 3px solid rgba(0,0,0,0.4);
-				//box-shadow: 0 0 3px rgba(0,0,0,0.15), 0 0 6px rgba(0,0,0,0.075), 0 0 20px rgba(0,0,0,0.075);
+				//box-shadow: 0 0 0 3px rgba(0,0,0,0.75) inset;
+				//background: rgba(0,0,0,0.5);
 			}
 
 		}
+
+		[type=text], textarea {
+			&:focus {
+				box-shadow: 0 0 0 3px #fc4d2e inset;
+				background: white;
+				color: #040407;
+			}
+		}
+
 		input[type=submit] {
 			&:focus {
 				outline: 0;
@@ -1049,6 +1124,11 @@ form {
 /**********
 layouts
 **********/
+
+.content-header {
+	padding: 3.5em 0;
+}
+
 .body {
 	height: 100%;
 	min-height: 100%;
@@ -1059,74 +1139,32 @@ layouts
 	margin: 0 auto;
 	position: relative;
 	z-index: 1;
+	padding-top: 5em;
+
+	&.edit {
+		padding-top: 0;
+	}
 
 	+ form {
 		padding-top: 0;
 	}
 
-	small {
+	.editable {
+		background: rgba(0,0,0,0.5);
 		display: block;
 		padding: .5em;
-		line-height: 1;
-		background: none;
-		text-align: right;
-		font-family: $sans;
-		color: rgba(0,0,0,0.5);
 		position: fixed;
-		left: 1em;
-		top: 1em;
-		z-index: 2;
+		top: 0;
+		left: 0;
+		width: 100%;
 
-		.edit {
-			font-size: 150%;
-			position: static;
+		a {
 			color: white;
-			display: block;
-			background: rgba(0,0,0,0.35);
-			padding: 0;
-			text-align: center;
-			width: 2.1em;
-			//margin: 0 0 1em;
-			//overflow: hidden;
-			@include text-shadow;
-
-			&:hover {
-				background: lighten($main-color-highlight, 10%);
-			}
-
+			display: inline-block;
+			padding: 1em;
+	
 			&:active {
-				background: $main-color-highlight;
-			}
-
-			&:before {
-				padding: .65em 0;
-				background: none;
-				width: 100%;
-			}
-			
-			span {
-				position: relative;
-				&:after {
-					content: attr(data-title);
-					position: absolute;
-					text-shadow: none;
-					color: rgba(0,0,0,0.5);
-					font: bold 65%/1 'Archivo Narrow', sans-serif;
-					width: 110px;
-					top: 5px;
-					right: -120px;
-					text-align: left;
-					opacity: 1;
-					display: none;
-				}
-			}
-
-			&:hover:before, &:active:before {
-				background: none;
-			}
-
-			&:hover span:after {
-				display: block;
+				opacity: .65;
 			}
 
 		}
@@ -1134,56 +1172,6 @@ layouts
 	}
 
 	@media screen and (max-width:70em){
-		small {
-			left: 0;
-			top: auto;
-			bottom: 0;
-			padding: 0;
-			width: 100%;
-
-			.edit {
-				width: 20%;
-				float: left;
-				//background: darken($main-color, 40%);
-
-				&:before {
-					padding: 1em 0;
-				}
-
-				span {
-					&:after {
-						content: "";
-					}
-				}
-
-			}
-
-			&.i {
-				.edit {
-					width: 50%;
-				}
-			}
-
-			&.cls {
-				top: 1em;
-				left: 1em;
-				padding: .5em;
-				bottom: auto;
-
-				.edit {
-					width: 2.1em;
-
-					&:before {
-						padding: .65em 0;
-					}
-
-				}
-
-			}
-
-		}
-
-	}
 
 	header {
 		width: 100%;
@@ -1207,6 +1195,8 @@ layouts
 			font-weight: bold;
 		}
 
+	}
+
 		@media screen and (max-width:50em) {
 			h2 {
 				font-size: 1.5em;
@@ -1216,9 +1206,6 @@ layouts
 	}
 
 	.edit {
-		position: absolute;
-		top: 0;
-		right: -2.5em;
 		cursor: pointer;
 
 		&:before {
@@ -1369,7 +1356,8 @@ layouts
 	header {
 		.home & {
 			small {
-				font: bold 1.75em/1.05 'Inconsolata', sans-serif;
+				//font: bold 1.75em/1.05 'Inconsolata', sans-serif;
+				font-size: 1.75em;
 			}
 			.btn {
 

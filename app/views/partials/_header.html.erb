@@ -4,7 +4,9 @@ author = cookies['content-author']
 <div class="table-cell<% if request.fullpath == '/' || request.fullpath == '/my-boards' %> home<% end %><% if request.fullpath == '/my-boards' %> boards<% end %>">
 	<div class="wrapper<% if url[3] == 'edit' %> edit<% end %>">
 		<header role="banner">
-			<h2<% if url[3] == 'edit' || url[2] == 'new' %> class="sub"<% end %><% if author && request.fullpath == '/' %> class="author"<% end %>>Contentboard<span class="icon-file-text-alt"></span>
+			<h2<% if url[3] == 'edit' || url[2] == 'new' %> class="sub"<% end %><% if author && request.fullpath == '/' %> class="author"<% end %>>
+				<%= image_tag('/assets/logo.png') %>
+				Contentboard
 			</h2>
 			<% if author && request.fullpath == '/' %>
 			<h3><a href="/my-boards">My boards <span class="icon-list"></span></a></h3>
@@ -20,6 +22,6 @@ author = cookies['content-author']
 			</small>
 			<div class="grad"></div>
 			<% end %>
-			<%= image_tag('/assets/typewriter.jpg', alt: "Image kindly grepped from http://3.bp.blogspot.com/-u1_KyXtxQWY/UTHvquyrC1I/AAAAAAAAAtc/JcbjTpytY_M/s640/typewriter+art+031.JPG", title: "Image kindly grepped from http://3.bp.blogspot.com/-u1_KyXtxQWY/UTHvquyrC1I/AAAAAAAAAtc/JcbjTpytY_M/s640/typewriter+art+031.JPG") %>
+			<%= image_tag('/assets/typewriter.jpg', alt: "Image kindly grepped from http://3.bp.blogspot.com/-u1_KyXtxQWY/UTHvquyrC1I/AAAAAAAAAtc/JcbjTpytY_M/s640/typewriter+art+031.JPG", title: "Image kindly grepped from http://3.bp.blogspot.com/-u1_KyXtxQWY/UTHvquyrC1I/AAAAAAAAAtc/JcbjTpytY_M/s640/typewriter+art+031.JPG", class: 'hero') %>
 			<% end %>
 		</header>
