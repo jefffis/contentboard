@@ -11,10 +11,10 @@
 			<a class="icon-cog edit styles" data-part="global">Edit styles</a>
 			<a href="<%= edit_content_path(@content) %>">Edit content</a>
 			<% if !author %>
-			<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank">Share via email</a>
+			<!--<a href="mailto:?subject=Check this out <%= @content.title %> <%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>" target="_blank">Share via email</a>-->
 			<% end %>
 			<a href="<%= request.protocol %><%= request.host_with_port %>/<%= @content.unique_string %>">Share link</a>
-			<a href="<%= new_content_path %>">Add new board</a>
+			<a href="<%= new_content_path %>">New board</a>
 			<% if author %>
 			<a href="/my-boards">My boards</a>
 			<% end %>
@@ -74,7 +74,7 @@
 		</script>
 		<% end %>
 	</div>
-	<h5><a href="/">Contentboard</a> app &copy; 2013, built by <a href="http://jefff.co/" target="_blank">jefff</a>, <a href="mailto:the.jeffdoan@gmail.com">got questions?</a></h5>
+	<h5><a href="/">Contentboard</a> app, built by <a href="http://jefff.co/" target="_blank">jefff</a>, <a href="mailto:the.jeffdoan@gmail.com">got questions?</a></h5>
 </div>
 <div class="table inner nope" id="modal">
 	<div class="table-cell">

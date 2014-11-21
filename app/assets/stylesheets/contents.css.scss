@@ -20,9 +20,9 @@ $main-color: #777;
 $main-background: #9ce8e3;
 $main-color-highlight: #fc4d2e;
 $main-link: #fe8787;
-$custom-font: sans-serif;
+$custom-font: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
 //$sans: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
-$sans: sans-serif;
+$sans: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
 
 // clearfix
 .cf:before,.cf:after{content:" ";display:table}.cf:after{clear:both}.cf{*zoom:1}
@@ -176,7 +176,7 @@ small {
 		.home & {
 			max-width: 100%;
 			margin: 2em 0;
-			background: $main-color-highlight;
+			//background: $main-color-highlight;
 			font-size: 120%;
 		}
 		&:active {
@@ -192,7 +192,7 @@ small {
 
 h5 {
 	text-align: center;
-	font-family: 'Inconsolata', sans-serif;
+	font-family: $sans;
 	font-weight: normal;
 	//margin-bottom: 8em;
 	@media screen and (max-width:70em){
@@ -222,8 +222,15 @@ h5 {
 .btn, .btn:visited, [type=submit] {
 	//background: $main-link;
 	//letter-spacing: -1px;
-	font: bold 150%/1 $custom-font;
+	font: normal 150%/1 $custom-font;
 	background: $main-color-highlight;
+	background: $main-color-highlight;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from($main-color-highlight), to(darken($main-color-highlight,15%)));
+	background: -webkit-linear-gradient($main-color-highlight, darken($main-color-highlight,15%));
+	background: -moz-linear-gradient($main-color-highlight, darken($main-color-highlight,15%));
+	background: -ms-linear-gradient($main-color-highlight, darken($main-color-highlight,15%));
+	background: -o-linear-gradient($main-color-highlight, darken($main-color-highlight,15%));
+	background: linear-gradient($main-color-highlight, darken($main-color-highlight,15%));
 	color: white;
 	text-decoration: none;
 	display: block;
@@ -234,8 +241,8 @@ h5 {
 	max-width: 15em;
 	margin: 0 auto;
 	border-radius: 5px;
-	border: 3px solid rgba(0,0,0,0.2);
-	//box-shadow: 0 -3px 0 rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.1) inset, 0 1px 3px rgba(0,0,0,0.1), 0 1px 10px rgba(0,0,0,0.07);
+	//border: 3px solid rgba(0,0,0,0.2);
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.15) inset;
 
 	@include text-shadow;
 	//@include transition(all, .2s, ease-in-out);
@@ -568,7 +575,7 @@ header {
 	}
 
 	.boards.home & {
-		max-height: 10em;
+		max-height: 33em;
 	}
 
 	.home & {
@@ -774,6 +781,33 @@ h1.center {
 }
 .intro + .outro {
 	margin-top: -2em;
+}
+
+// my boards
+.my-boards {
+	font-size: 2em;
+	text-align: center;
+
+	li {
+		list-style: none;
+		counter-increment: this;
+
+		&:before {
+			content:'(' counter(this) ')';
+			display: inline-block;
+			padding-right: .25em;
+		}
+
+		&:after {
+			content:',';
+		}
+
+		&:last-child:after {
+			content:'';
+		}
+
+	}
+
 }
 
 // form
@@ -1171,7 +1205,7 @@ layouts
 
 	}
 
-	@media screen and (max-width:70em){
+	@media screen and (max-width:100em){
 
 	header {
 		width: 100%;
@@ -1329,6 +1363,34 @@ layouts
 			content: "\f040";
 		}
 
+	}
+
+}
+
+@media screen and (max-width: 700px){
+	
+	.layout {
+		.editable {
+			.edit.styles {
+				display: none;
+			}
+		}
+	}
+
+}
+
+@media screen and (max-width: 1000px){
+	
+	.body {
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+	}
+	.layout {
+		.editable {
+			a {
+				padding: 1em .5em;
+			}
+		}
 	}
 
 }
